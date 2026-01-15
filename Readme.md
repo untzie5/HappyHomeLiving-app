@@ -7,11 +7,11 @@ It provides shared shopping lists, to-do lists, schedules, and status messages.
 
 ## Feature Map
 Link to feature map / planning:
-👉 [Miro board link]
+https://miro.com/app/board/uXjVGROm4UU=/
 
 ## Project Management
 Project planning and work items are managed using Miro.
-👉 [Same Miro link or specific section]
+https://miro.com/app/board/uXjVGROm4UU=/
 
 ## Technology Overview
 - Client: PWA (frontend)
