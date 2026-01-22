@@ -13,8 +13,6 @@ https://miro.com/app/board/uXjVGROm4UU=/
 Project planning and work items are managed using Miro.
 https://miro.com/app/board/uXjVGROm4UU=/
 
-## Technology Overview
-- Client: PWA (frontend)
-- Server: REST-ish API
-- Database: PostgreSQL (cloud)
-- Offline support via local storage and sync
+## Middleware planning: 
+https://miro.com/app/board/uXjVGROm4UU=/
+
