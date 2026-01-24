@@ -1,21 +1,10 @@
+import app from "./app/app.mjs";
 import express from "express";
-const app = express()
 
-app.get ('/', (req, res,) =>  {
-    res.send('Home Page')
+const PORT = 3000;
+const app = new express();
+
+
+app.listen (PORT, () => {
+    console.log ('Server is running on port ${PORT}')
 })
-
-app.get ('Users', auth, (req, res) => {
-    res.send('Users Page')
-})
-
-function auth (req, res) {
-    if (req.query.admin === 'true') {
-        req.admin = true
-        next()
-    } else {
-        res.send ('No auth')
-    }
-   
-}
-app.listen (3000)
