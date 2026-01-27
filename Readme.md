@@ -16,3 +16,6 @@ https://miro.com/app/board/uXjVGROm4UU=/
 ## Middleware planning: 
 https://miro.com/app/board/uXjVGROm4UU=/
 
+## Testing with Insomnia
+The Insomnia request collection export is included in:
+`tests/insomnia/HappyHomeLivingAPI.yaml`
