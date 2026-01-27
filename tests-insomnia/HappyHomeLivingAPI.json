@@ -1,0 +1,82 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Happy Home Living API
+meta:
+  id: wrk_a25987f971d942eaadfa6b39993418b7
+  created: 1769245443069
+  modified: 1769507924837
+  description: ""
+collection:
+  - url: http://localhost:3000/api/households/house_1/chores
+    name: List chores
+    meta:
+      id: req_0ad52c569b88434f8dcfcd2d6b5d9fee
+      created: 1769245486236
+      modified: 1769507914994
+      isPrivate: false
+      description: ""
+      sortKey: -1769245486236
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/households/house_1/chores
+    name: Create chore
+    meta:
+      id: req_f5c6a0de209e43febc9198dd436176cd
+      created: 1769507984068
+      modified: 1769508074163
+      isPrivate: false
+      description: ""
+      sortKey: -1769507984068
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "title": "Take out trash",
+          "done": false
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b63226771092692788ff69d909f92eda9f588d47
+    created: 1769245443078
+    modified: 1769245443078
+environments:
+  name: Base Environment
+  meta:
+    id: env_b63226771092692788ff69d909f92eda9f588d47
+    created: 1769245443074
+    modified: 1769245443074
+    isPrivate: false
