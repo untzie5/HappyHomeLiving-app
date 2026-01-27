@@ -1,13 +1,15 @@
 import express from "express"
 
-app.get("/api/households/:householdId/chores", (req, res) => {
+const router = express.Router();
+
+router.get("/api/households/:householdId/chores", (req, res) => {
   res.json({
     householdId: req.params.householdId,
     chores: []
   });
 });
 
-app.post("/api/households/:householdId/chores", (req, res) => {
+router.post("/api/households/:householdId/chores", (req, res) => {
   res.status(201).json({
     created: true,
     householdId: req.params.householdId,
@@ -17,3 +19,5 @@ app.post("/api/households/:householdId/chores", (req, res) => {
     }
   });
 });
+
+export default router;
