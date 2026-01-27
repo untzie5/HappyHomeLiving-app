@@ -3,10 +3,6 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
-app.get("/health", (req, res) => {
-  res.json({ ok: true });
-});
-
 app.get("/api/households/:householdId/chores", (req, res) => {
   res.json({
     householdId: req.params.householdId,
