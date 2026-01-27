@@ -1,4 +1,5 @@
 import app from "./app/app.mjs";
+import authorization from "./modules/QuietHours.mjs";
 
 const PORT = 3000;
 
