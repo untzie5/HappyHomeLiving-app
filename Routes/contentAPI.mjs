@@ -16,13 +16,13 @@ router.post(
   (req, res) => {
     res.status(201).json({
       created: true,
-      quietTime: req.isQuietTime,
+      quietHour: req.isQuietHour,
       householdId: req.params.householdId,
       chore: {
         id: "chore_1",
         ...req.body
       },
-      notification: req.isQuietTime ? "suppressed" : "would_send"
+      notification: req.isQuietHour ? "suppressed" : "would_send"
     });
   }
 );
