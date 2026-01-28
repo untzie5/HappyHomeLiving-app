@@ -1,7 +1,13 @@
 import app from "./app/app.mjs";
-import quietHours from "./modules/QuietHours.mjs";
+import contentRouter from "./Routes/contentAPI.mjs"
+
 
 const PORT = 3000;
+const app = express();
+
+app.use(express.json());
+
+app.use("/content", contentRouter);
 
 
 app.listen (PORT, () => {
