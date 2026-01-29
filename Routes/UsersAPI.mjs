@@ -9,7 +9,7 @@ userRouter.use(express.json());
 userRouter.post("/", (req, res, next) => {
 
     let newUser = user();
-    newUser.id = generateId();
+    newUser.id = generateID();
 
 
     res.json(newUser);
