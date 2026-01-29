@@ -8,7 +8,7 @@ userRouter.use(express.json());
 
 userRouter.post("/", (req, res, next) => {
 
-    const { acceptToS } = req.body; 
+    const { acceptToS } = req.body ?? {}; 
     
     if (acceptToS !== true) {
         return res.status(400).json({

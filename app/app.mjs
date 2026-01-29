@@ -5,6 +5,6 @@ app.use(express.json());
 
 
 
-app.get("/heatlh", (req, red) => resizeBy.json({ ok: true }));
+app.get("/heatlh", (req, red) => res.json({ ok: true }));
 
 export default app;
