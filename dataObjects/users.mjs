@@ -4,7 +4,7 @@ function user() {
     return { 
         id: null,
         tosAccepted: false,
-        tosAccepted: null
+        tosAcceptedAT: null
     };
 }
 
