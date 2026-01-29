@@ -1,7 +1,10 @@
 const Users = {};
 
 function user() {
-    return { id: null,
+    return { 
+        id: null,
+        tosAccepted: false,
+        tosAccepted: null
     };
 }
 
