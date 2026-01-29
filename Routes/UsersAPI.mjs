@@ -18,6 +18,8 @@ userRouter.post("/", (req, res, next) => {
 
     let newUser = createUser();
     newUser.id = generateID();
+    newUser.tosAccepted = true;
+    newUser.tosAcceptedAt = new Date().toISOString();
 
 
     res.json(newUser);
