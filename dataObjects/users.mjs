@@ -12,6 +12,12 @@ export function getUserById(id) {
     return Users[id] ?? null;
 }
 
+export function deleteUserById(id) {
+    if (!Users[id]) return false;
+    delete Users [id];
+    return true;
+}
+
 function user() {
     return { 
         id: null,

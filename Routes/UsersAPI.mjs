@@ -1,5 +1,5 @@
 import express from "express"
-import createUser, { generateID, saveUser, getUserById } from "../dataObjects/users.mjs";
+import createUser, { generateID, saveUser, getUserById, deleteUsersById } from "../dataObjects/users.mjs";
 
 
 const userRouter = express.Router();
@@ -24,7 +24,7 @@ userRouter.post("/", (req, res, next) => {
     res.json(newUser);
 });
 
-userRouter.get("/:id", (req, res) => {
+userRouter.get("/:id", (req, res, next) => {
     const user = getUserById(req.params.id);
 
     if (!user) {
@@ -32,6 +32,21 @@ userRouter.get("/:id", (req, res) => {
     }
 
     res.json(user);
+});
+
+userRouter.delete("/id", (Req, res) => {
+    const id = req.params.id;
+
+    const deleted = deleteUserById(id);
+
+    if (!deleted) {
+        return res.status(404).json({ error: "User not found"});
+    }
+
+    res.json({
+        deleted: true, 
+        message: "Accound deleted and consent withdrawn"
+    });
 });
 
 export default userRouter;
