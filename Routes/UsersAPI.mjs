@@ -1,7 +1,6 @@
 import express from "express"
 import createUser, { generateID, saveUser } from "../dataObjects/users.mjs";
 
-saveUser(newUser);
 
 const userRouter = express.Router();
 
@@ -22,6 +21,7 @@ userRouter.post("/", (req, res, next) => {
     newUser.tosAccepted = true;
     newUser.tosAcceptedAt = new Date().toISOString();
 
+    saveUser(newUser);
 
     res.json(newUser);
 });
