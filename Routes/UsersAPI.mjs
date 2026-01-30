@@ -1,6 +1,7 @@
 import express from "express"
-import createUser from "../dataObjects/users.mjs";
-import { generateID } from "../dataObjects/users.mjs";
+import createUser, { generateID, saveUser } from "../dataObjects/users.mjs";
+
+saveUser(newUser);
 
 const userRouter = express.Router();
 
