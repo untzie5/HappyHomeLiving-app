@@ -1,5 +1,5 @@
 import express from "express"
-import createUser, { generateID, saveUser, getUserById, deleteUsersById } from "../dataObjects/users.mjs";
+import createUser, { generateID, saveUser, getUserById, deleteUserById } from "../dataObjects/users.mjs";
 
 
 const userRouter = express.Router();
@@ -34,7 +34,7 @@ userRouter.get("/:id", (req, res, next) => {
     res.json(user);
 });
 
-userRouter.delete("/id", (Req, res) => {
+userRouter.delete("/:id", (req, res) => {
     const id = req.params.id;
 
     const deleted = deleteUserById(id);
@@ -45,7 +45,7 @@ userRouter.delete("/id", (Req, res) => {
 
     res.json({
         deleted: true, 
-        message: "Accound deleted and consent withdrawn"
+        message: "Account deleted and consent withdrawn"
     });
 });
 
