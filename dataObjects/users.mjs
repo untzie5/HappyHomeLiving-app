@@ -1,24 +1,5 @@
 const Users = {};
 
-export function saveUser(user) {
-    Users [user.id]= user;
-}
-
-export function getUser(id) {
-    return Users[id] ?? null;
-}
-
-export function getUserById(id) {
-    return Users[id] ?? null;
-}
-
-
-export function deleteUserById(id) {
-    if (!Users[id]) return false;
-    delete Users [id];
-    return true;
-}
-
 function user() {
     return { 
         id: null,
@@ -34,5 +15,18 @@ export function generateID() {
 
     return id;
 }
+export function saveUser(user) {
+    Users[user.id]= user;
+}
 
+export function getUserById(id) {
+    return Users[id] ?? null;
+}
+
+
+export function deleteUserById(id) {
+    if (!Users[id]) return false;
+    delete Users[id];
+    return true;
+}
 export default user;
