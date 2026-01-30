@@ -1,5 +1,13 @@
 const Users = {};
 
+export function saveUser(user) {
+    Users [user.id]= user;
+}
+
+export function getUser(id) {
+    return Users[id] ?? null;
+}
+
 function user() {
     return { 
         id: null,
