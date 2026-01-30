@@ -1,5 +1,5 @@
 import express from "express"
-import createUser, { generateID, saveUser } from "../dataObjects/users.mjs";
+import createUser, { generateID, saveUser, getUserById } from "../dataObjects/users.mjs";
 
 
 const userRouter = express.Router();
@@ -19,11 +19,19 @@ userRouter.post("/", (req, res, next) => {
     let newUser = createUser();
     newUser.id = generateID();
     newUser.tosAccepted = true;
-    newUser.tosAcceptedAt = new Date().toISOString();
-
     saveUser(newUser);
 
     res.json(newUser);
+});
+
+userRouter.get("/:id", (req, res) => {
+    const user = getUserById(req.params.id);
+
+    if (!user) {
+        return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json(user);
 });
 
 export default userRouter;
