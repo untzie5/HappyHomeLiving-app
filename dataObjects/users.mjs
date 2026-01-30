@@ -22,7 +22,7 @@ function user() {
 export function generateID() {
     let id = null;
     do {
-        id = (Math.random() * Number.MAX_SAFE_INTEGER).toString(4);
+        id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(16);
     } while (Users[id]);
 
     return id;
