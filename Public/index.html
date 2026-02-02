@@ -4,15 +4,61 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Happy Home Living </title>
     <link href="./style.css" rel="stylesheet" />
 
 </head>
 
 <body>
 
-    <h1> Happy Home Living</h1>
-    <p> An app for the people who live together to help stay organized everyday</p>
+   <header  class = "toppbar">
+    <div class="brand">
+    </div>
+   
+   <h1> Happy Home Living </h1>
+   <p> Organize your everyday together!</p>
+
+    <nav class="actions">
+      <button class="btn btn-ghost" type="button">Login</button>
+      <button class="btn btn-primary" type="button"> register </button>
+    </nav>
+</header>
+
+
+ <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+         <p>
+           ......
+        </p>
+
+           <div class="hero-stats">
+          <div class="pill">✅ To-Do</div>
+          <div class="pill">📅 Calender</div>
+          <div class="pill">💬 Messages</div>
+          <div class="pill">🛒Shoppingcart</div>
+        </div>
+      </div>
+
+        <article class="feature">
+        <header class="feature-head">
+          <h3>To-Do</h3>
+          <span class="badge">Placeholder</span>
+        </header>
+
+        <div class="feature-body">
+          <div class="todo-row">
+            <span class="checkbox" aria-hidden="true"></span>
+            <div class="skeleton w80"></div>
+          </div>
+          <div class="todo-row">
+            <span class="checkbox" aria-hidden="true"></span>
+            <div class="skeleton w65"></div>
+          </div>
+          <div class="todo-row">
+            <span class="checkbox done" aria-hidden="true"></span>
+          </div>
+        </div>
 
       <main id="app"></main>
      <script src="./app.mjs"></script>
