@@ -1,4 +1,4 @@
-import app from "./app/app.mjs";
+import app from "./Public/app.mjs";
 import contentRouter from "./Routes/contentAPI.mjs";
 import UserRouter from "./Routes/UsersAPI.mjs";
 
