@@ -1,10 +1,8 @@
-import express from 'express';
-const app = express();
-
-app.use(express.json());
+const app = document.getElementById("app");
+app.use("/api", TodosAPI);
 
 
 
-app.get("/heatlh", (req, red) => res.json({ ok: true }));
+app.get("/health", (req, red) => res.json({ ok: true }));
 
 export default app;
