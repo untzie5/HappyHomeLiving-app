@@ -1,9 +1,8 @@
-import express from "expess";
-import app from "./Public/app.mjs";
+import express from "express";
 import todosRouter from "./Routes/TodosAPI.mjs";
 import UserRouter from "./Routes/UsersAPI.mjs";
 
-const app = new express();
+const app =  express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
