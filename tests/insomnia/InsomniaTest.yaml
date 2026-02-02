@@ -1,0 +1,248 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Happy Home Living API
+meta:
+  id: wrk_a25987f971d942eaadfa6b39993418b7
+  created: 1769245443069
+  modified: 1769507924837
+  description: ""
+collection:
+  - url: http://localhost:3000/user
+    name: User API
+    meta:
+      id: req_58ada951ea2447b3b401ac60bbe8b678
+      created: 1769698518119
+      modified: 1770037040375
+      isPrivate: false
+      description: ""
+      sortKey: -1769698518119
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        { "acceptToS": true}
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/user
+    name: testing User Tos
+    meta:
+      id: req_706d20f935864b3ea26d57fe3f7a03d8
+      created: 1769762627439
+      modified: 1770037061816
+      isPrivate: false
+      description: ""
+      sortKey: -1769762627439
+    method: GET
+    body:
+      mimeType: application/json
+      text: '{ "acceptToS" : true }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/user/35708cf4ad4e1
+    name: delete user test
+    meta:
+      id: req_6cd7fbf6272b465c8ade8bd9c2ac91c7
+      created: 1769765016501
+      modified: 1770037081207
+      isPrivate: false
+      description: ""
+      sortKey: -1769765016501
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: |
+        { "acceptToS": true }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/health
+    name: get Health test
+    meta:
+      id: req_2585dbe16fa246749e04f92f93853e46
+      created: 1770037087454
+      modified: 1770037115407
+      isPrivate: false
+      description: ""
+      sortKey: -1770037087454
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/todos
+    name: list todos
+    meta:
+      id: req_25c3e3d30b9e40e6b7e762caa9b9009d
+      created: 1770037127469
+      modified: 1770037140371
+      isPrivate: false
+      description: ""
+      sortKey: -1770037127469
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/todos
+    name: create todo
+    meta:
+      id: req_0c8618f8b69a4a978a8b8fad18013e90
+      created: 1770037156661
+      modified: 1770037210779
+      isPrivate: false
+      description: ""
+      sortKey: -1770037156661
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "done": true }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/todos/reset-week
+    name: reset week
+    meta:
+      id: req_ec3753a33b814f0495ccce474308dc08
+      created: 1770037224428
+      modified: 1770037241874
+      isPrivate: false
+      description: ""
+      sortKey: -1770037224428
+    method: POST
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/todos/todo_1
+    name: delete todo
+    meta:
+      id: req_3e1bcf24cf644814bb46b64241e4c26d
+      created: 1770037257773
+      modified: 1770037279121
+      isPrivate: false
+      description: ""
+      sortKey: -1770037257773
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b63226771092692788ff69d909f92eda9f588d47
+    created: 1769245443078
+    modified: 1769245443078
+environments:
+  name: Base Environment
+  meta:
+    id: env_b63226771092692788ff69d909f92eda9f588d47
+    created: 1769245443074
+    modified: 1769245443074
+    isPrivate: false
