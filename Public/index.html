@@ -32,17 +32,26 @@
     <div class="create-user-container">
         <div class="terms">
             <input type="checkbox" id="terms" />
-            <span class="terms-text">Terms of service</span>
+            <span class="terms-text" id="tos-link">Terms of service</span>
     </div>
 
         <button class="create-user-btn">Create user</button>
     </div>
+</div>
 
+<div id="tos-modal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Terms of Service</h2>
+      <button id="close-tos" type="button">Close</button>
+    </div>
 
+    <iframe class="tos-frame" src="./ToS.md" src="./ToS.md"></iframe>
+  </div>
 </div>
 
      
-     <script src="./app.mjs"></script>
+     <script type= "module" src="./app.mjs"></script>
     
 </body>
 </html>

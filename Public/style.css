@@ -106,3 +106,38 @@ button:hover {
 .terms input {
     cursor: pointer;
 }
+
+.hidden { display: none !important; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  width: min(700px, 92vw);
+  height: min(70vh, 520px);
+  background: #EDEFF3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #796D64;
+}
+
+.tos-frame {
+  width: 100%;
+  height: calc(100% - 52px);
+  border: none;
+  background: white;
+}
