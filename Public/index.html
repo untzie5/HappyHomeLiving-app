@@ -11,12 +11,37 @@
 
 <body>
    
-   <h1> Happy Home Living </h1>
-   <p> Organize your everyday together!</p>
+    <main>
+    <h1>sign in</h1>
 
-  
+    <form>
+      <div>
+        <label for="username">username</label>
+        <input id="username" name="username" type="text" required />
+      </div>
 
-      <main id="app"></main>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required />
+      </div>
+
+      <button type="submit">sign in</button>
+    </form>
+  </main>
+
+    <div class="create-user-container">
+        <div class="terms">
+            <input type="checkbox" id="terms" />
+            <span class="terms-text">Terms of service</span>
+    </div>
+
+        <button class="create-user-btn">Create user</button>
+    </div>
+
+
+</div>
+
+     
      <script src="./app.mjs"></script>
     
 </body>
