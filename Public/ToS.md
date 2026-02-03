@@ -33,3 +33,6 @@ Terms and Conditions may change over time, and each user must accept the new ter
 ## Consent
 All users must accept Terms of Service before using Happy Home Living. When deleting of an account, users will be able to withdraw their consent.
 
+
+
+
