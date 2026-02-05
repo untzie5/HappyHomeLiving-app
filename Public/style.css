@@ -18,7 +18,7 @@ body {
   align-items: center;
 }
 
-/* Sign in box */
+
 main {
   background-color: #EDEFF3;
   padding: 2rem;
@@ -62,7 +62,7 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Create user strip under sign in */
+
 .create-user-container {
   background-color: #EDEFF3;
   width: 320px;
@@ -85,7 +85,7 @@ button:hover {
   color: #EDEFF3;
 }
 
-/* ===== ToS modal (overlay) ===== */
+
 .hidden { display: none !important; }
 
 .modal {
@@ -205,7 +205,6 @@ button:hover {
   cursor: pointer;
 }
 
-/* ===== Terms checkbox + link (fix placement + blue hover) ===== */
 .terms {
   display: flex;
   align-items: center;

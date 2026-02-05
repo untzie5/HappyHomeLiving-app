@@ -2,12 +2,11 @@ const app = document.getElementById("app");
 
 showSignIn();
 
-/* ========= Views ========= */
 
 function showSignIn() {
   app.innerHTML = signInHTML();
   wireCreateAccountLink();
-  wireLogin(); // (placeholder – gjør ingenting hvis du ikke trenger login enda)
+  wireLogin(); 
 }
 
 function showCreateUser() {
@@ -16,8 +15,6 @@ function showCreateUser() {
   wireTosModal();
   wireCreateUser();
 }
-
-/* ========= HTML templates ========= */
 
 function signInHTML() {
   return `
@@ -106,7 +103,6 @@ function tosModalHTML() {
   `;
 }
 
-/* ========= Wiring ========= */
 
 function wireCreateAccountLink() {
   const btn = document.getElementById("go-create-user");
@@ -174,8 +170,6 @@ function wireCreateUser() {
       successEl.textContent = `User created! id: ${created.id}`;
       successEl.hidden = false;
 
-      // Valgfritt: send tilbake til sign in etter opprettelse
-      // showSignIn();
     } catch (err) {
       errorEl.textContent = err.message;
       errorEl.hidden = false;
@@ -191,12 +185,11 @@ async function apiRequest(url, options = {}) {
   return data;
 }
 
-/* ========= Placeholders (kan fylles senere) ========= */
+
 function wireLogin() {
   const form = document.getElementById("login-form");
   if (!form) return;
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // login kommer senere
   });
 }
