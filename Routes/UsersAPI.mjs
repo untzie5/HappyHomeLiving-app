@@ -1,5 +1,5 @@
 import express from "express"
-import createUser, { generateID, saveUser, getUserById, deleteUserById } from "../dataObjects/users.mjs";
+import createUser, { generateID, saveUser, getUserById, deleteUserById, findUserByUsername, updateUserById } from "../dataObjects/users.mjs";
 
 
 const userRouter = express.Router();
@@ -24,6 +24,17 @@ userRouter.post("/", (req, res, next) => {
     res.json(newUser);
 });
 
+userRouter.post("/login", (req, res) => {
+    const { username, password } = req.body ?? {};
+    
+    const user = findUserByUsername (username);
+    if (!user || user.password !== password) {
+        return res.status(401).json({error: "Invalid username or password"});
+        }
+
+        res.json(user);
+});
+
 userRouter.get("/:id", (req, res, next) => {
     const user = getUserById(req.params.id);
 
@@ -32,6 +43,12 @@ userRouter.get("/:id", (req, res, next) => {
     }
 
     res.json(user);
+});
+
+userRouter.patch("/:id", (req,res) => {
+    const updated = updateUserById( req.params.id, req.body ?? {});
+    if (!updated) return res.status(404).json({error: "User not found " });
+    res.json(updated);
 });
 
 userRouter.delete("/:id", (req, res) => {

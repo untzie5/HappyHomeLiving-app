@@ -1,4 +1,5 @@
 const app = document.getElementById("app");
+let currentUser = null; 
 
 showSignIn();
 
@@ -15,6 +16,21 @@ function showCreateUser() {
   wireTosModal();
   wireCreateUser();
 }
+
+function showDashboard(user) {
+  currentUser = user;
+  app.innerHTML = dashboardHTML(user);
+  wireLogout();
+  wireGoToEdit();
+  wireDeleteUser();
+}
+
+function showEditUser() {
+  app.innerHTML = editUserHTML(currentUser);
+  wireBackToDashboard();
+  wireEditUser();
+}
+
 
 function signInHTML() {
   return `
@@ -103,6 +119,66 @@ function tosModalHTML() {
   `;
 }
 
+function dashboardHTML(user) {
+    return `
+    <main>
+        <h1> Happy Home Living </h1>
+        <p> Logged in as <strong> ${user.username}</strong></p>
+        
+        <button type="button" id="edit-user-btn"> Edit user </button>
+        <button type="button" id="delete-user-btn"> Delete user </button>
+        <button type="button" id="logout-btn"> Logout </button>
+        
+        <p id="dass-error" class"cu-error" hidden></p>
+    </main>
+    `;
+}
+
+function editUserHTML(user) {
+  return `
+    <main>
+      <h1>Edit user</h1>
+
+      <form id="edit-form">
+        <div>
+          <label>New username (optional)</label>
+          <input name="username" type="text" placeholder="${user.username}" />
+        </div>
+
+        <div>
+          <label>New password (optional)</label>
+          <input name="password" type="password" />
+        </div>
+
+         <button type="submit">Confirm</button>
+        <button type="button" id="back-to-dashboard">Back</button>
+
+        <p id="edit-error" class="cu-error" hidden></p>
+        <p id="edit-success" class="cu-success" hidden></p>
+      </form>
+    </main>
+  `;
+}
+
+  function loggedInHTML(username) {
+    return `
+    <h1> HAppy Home Living </h1>
+
+    <section id= "editAccount-section">
+        <h2> Edit Account </h2>
+
+        <form id= "Edit-form">
+            <input name= "username" type="text" placeholder="New username (optional)"/>
+            <input name ="password" type="password" placeholder="New password (optional)"/>
+
+            <button type="submit"> Confirm </button>
+            <button type="button" id="return-to-loggedIn"> Back </button>
+        </form>
+    </section>
+    `;
+  
+}
+
 
 function wireCreateAccountLink() {
   const btn = document.getElementById("go-create-user");
@@ -167,12 +243,80 @@ function wireCreateUser() {
         }),
       });
 
-      successEl.textContent = `User created! id: ${created.id}`;
+      successEl.textContent = `User created!`;
       successEl.hidden = false;
 
     } catch (err) {
       errorEl.textContent = err.message;
       errorEl.hidden = false;
+    }
+  });
+}
+
+
+function wireLogout() {
+  const btn = document.getElementById("logout-btn");
+  btn?.addEventListener("click", () => {
+    currentUser = null;
+    showSignIn();
+  });
+}
+
+function wireGoToEdit() {
+  const btn = document.getElementById("edit-user-btn");
+  btn?.addEventListener("click", showEditUser);
+}
+
+function wireDeleteUser() {
+  const btn = document.getElementById("delete-user-btn");
+  const err = document.getElementById("dash-error");
+
+  btn?.addEventListener("click", async () => {
+    if (!confirm("Delete your account?")) return;
+
+    try {
+      await apiRequest(`./api/user/${currentUser.id}`, { method: "DELETE" });
+      currentUser = null;
+      showSignIn();
+    } catch (e) {
+      if (err) { err.textContent = e.message; err.hidden = false; }
+    }
+  });
+}
+
+function wireBackToDashboard() {
+  document.getElementById("back-to-dashboard")
+    ?.addEventListener("click", () => showDashboard(currentUser));
+}
+
+function wireEditUser() {
+  const form = document.getElementById("edit-form");
+  const err = document.getElementById("edit-error");
+  const ok = document.getElementById("edit-success");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    err.hidden = true;
+    ok.hidden = true;
+
+    const payload = {
+      username: form.username.value || undefined,
+      password: form.password.value || undefined,
+    };
+
+    try {
+      const updated = await apiRequest(`./api/user/${currentUser.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      currentUser = updated;
+      ok.textContent = "Updated!";
+      ok.hidden = false;
+    } catch (e2) {
+      err.textContent = e2.message;
+      err.hidden = false;
     }
   });
 }
@@ -185,11 +329,26 @@ async function apiRequest(url, options = {}) {
   return data;
 }
 
-
 function wireLogin() {
   const form = document.getElementById("login-form");
   if (!form) return;
-  form.addEventListener("submit", (e) => {
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    try {
+      const user = await apiRequest("./api/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+        }),
+      });
+
+      showDashboard(user);
+    } catch (err) {
+      alert(err.message);
+    }
   });
 }
