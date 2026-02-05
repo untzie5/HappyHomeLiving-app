@@ -1,57 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Happy Home Living </title>
-    <link href="./style.css" rel="stylesheet" />
-
-</head>
-
-<body>
-   
-    <main>
-    <h1>sign in</h1>
-
-    <form>
-      <div>
-        <label for="username">username</label>
-        <input id="username" name="username" type="text" required />
-      </div>
-
-      <div>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required />
-      </div>
-
-      <button type="submit">sign in</button>
-    </form>
-  </main>
-
-    <div class="create-user-container">
-        <div class="terms">
-            <input type="checkbox" id="terms" />
-            <span class="terms-text" id="tos-link">Terms of service</span>
-    </div>
-
-        <button class="create-user-btn">Create user</button>
-    </div>
-</div>
-
-<div id="tos-modal" class="modal hidden">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Terms of Service</h2>
-      <button id="close-tos" type="button">Close</button>
-    </div>
-
-    <iframe class="tos-frame" src="./ToS.md" src="./ToS.md"></iframe>
-  </div>
-</div>
-
-     
-     <script type= "module" src="./app.mjs"></script>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Home Living</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main id="app"></main>
+    <script type="module" src="./app.mjs"></script>
+  </body>
 </html>

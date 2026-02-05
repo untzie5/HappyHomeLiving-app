@@ -6,15 +6,21 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #d4d6dc; 
+  background-color: #d4d6dc;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sign in box */
 main {
-  background-color: #EDEFF3; 
+  background-color: #EDEFF3;
   padding: 2rem;
   border-radius: 8px;
   width: 320px;
@@ -23,7 +29,7 @@ main {
 h1 {
   margin-top: 0;
   text-align: center;
-  color: #4E433F; 
+  color: #4E433F;
 }
 
 form {
@@ -34,19 +40,19 @@ form {
 
 label {
   font-size: 0.9rem;
-  color: #4E433F; 
+  color: #4E433F;
 }
 
 input {
   padding: 0.5rem;
-  border: 1px solid #796D64; 
+  border: 1px solid #796D64;
   border-radius: 4px;
 }
 
 button {
   padding: 0.6rem;
-  background-color: #5C815C; 
-  color: #EDEFF3; 
+  background-color: #5C815C;
+  color: #EDEFF3;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -56,63 +62,36 @@ button:hover {
   opacity: 0.9;
 }
 
-
-.create-user {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  color: #5C815C; 
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
+/* Create user strip under sign in */
 .create-user-container {
   background-color: #EDEFF3;
   width: 320px;
   margin-top: 1rem;
   padding: 0.75rem 1rem;
   border-radius: 8px;
-
   display: flex;
   align-items: center;
+}
+
+.create-user-container p {
+  margin: 0;
+  color: #4E433F;
+  font-size: 0.9rem;
 }
 
 .create-user-btn {
-  margin-left: auto; 
+  margin-left: auto;
   background: #5C815C;
-  border: none;
   color: #EDEFF3;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 
-.terms {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.terms span {
-  color: #0062c4;
-}
-
-.terms span:hover {
-  color: #359aff
-}
-
-
-.terms input {
-    cursor: pointer;
-}
-
+/* ===== ToS modal (overlay) ===== */
 .hidden { display: none !important; }
 
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,4 +119,110 @@ button:hover {
   height: calc(100% - 52px);
   border: none;
   background: white;
+}
+
+/* ===== Create user dialog ===== */
+.cu-dialog {
+  width: min(520px, 92vw);
+  border: none;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.cu-card {
+  background: #EDEFF3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #796D64;
+}
+
+.cu-header h2 {
+  margin: 0;
+  color: #4E433F;
+  font-size: 1.05rem;
+}
+
+.cu-close {
+  background: none;
+  border: 1px solid #796D64;
+  color: #4E433F;
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.cu-body {
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cu-body label {
+  display: grid;
+  gap: 0.25rem;
+  color: #4E433F;
+  font-size: 0.9rem;
+}
+
+.cu-note {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: #796D64;
+}
+
+.cu-error {
+  margin: 0;
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.cu-success {
+  margin: 0;
+  color: #2a7a2a;
+  font-size: 0.9rem;
+}
+
+.cu-footer {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #796D64;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cu-submit {
+  background: #5C815C;
+  color: #EDEFF3;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+}
+
+/* ===== Terms checkbox + link (fix placement + blue hover) ===== */
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.terms input {
+  cursor: pointer;
+  margin: 0;
+}
+
+.terms-text {
+  color: #0062c4;
+  cursor: pointer;
+}
+
+.terms-text:hover {
+  color: #359aff;
 }
