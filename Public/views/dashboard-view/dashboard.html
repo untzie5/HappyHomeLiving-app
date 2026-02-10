@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Happy Home Living</h1>
+      <p>Logged in as <strong id="usernameText"></strong></p>
+
+      <button type="button" id="edit-user-btn">Edit user</button>
+      <button type="button" id="logout-btn">Logout</button>
+
+      <delete-user id="deleteUser"></delete-user>
+
+      <p id="dash-error" class="cu-error" hidden></p>
+    </main>
+
+    <script type="module" src="./dashboard.mjs"></script>
+  </body>
+</html>

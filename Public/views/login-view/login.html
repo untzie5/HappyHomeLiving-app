@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>sign in</h1>
+
+      <form id="login-form">
+        <div>
+          <label for="username">username</label>
+          <input id="username" name="username" type="text" required />
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required />
+        </div>
+
+        <button type="submit">sign in</button>
+      </form>
+    </main>
+
+    <div class="create-user-container">
+      <p>Not a user yet?</p>
+      <button type="button" class="create-user-btn" id="open-create-user">Create user</button>
+    </div>
+
+    <create-user id="createUser"></create-user>
+
+    <script type="module" src="./login.mjs"></script>
+  </body>
+</html>

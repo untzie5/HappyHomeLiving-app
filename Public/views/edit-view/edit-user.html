@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit user</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Edit user</h1>
+
+      <form id="edit-form">
+        <div>
+          <label>New username (optional)</label>
+          <input name="username" type="text" />
+        </div>
+
+        <div>
+          <label>New password (optional)</label>
+          <input name="password" type="password" />
+        </div>
+
+        <button type="submit">Confirm</button>
+        <button type="button" id="back-btn">Back</button>
+
+        <p id="edit-error" class="cu-error" hidden></p>
+        <p id="edit-success" class="cu-success" hidden></p>
+      </form>
+    </main>
+
+    <script type="module" src="./edit-user.mjs"></script>
+  </body>
+</html>
