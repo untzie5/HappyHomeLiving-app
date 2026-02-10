@@ -6,9 +6,9 @@ const userRouter = express.Router();
 
 userRouter.use(express.json());
 
-userRouter.post("/", (req, res, next) => {
+userRouter.post("/", (req, res) => {
 
-    const { acceptToS } = req.body ?? {}; 
+    const { acceptToS, username, password, email } = req.body ?? {}; 
     
     if (acceptToS !== true) {
         return res.status(400).json({
@@ -16,12 +16,34 @@ userRouter.post("/", (req, res, next) => {
         });
     }
 
-    let newUser = createUser();
+    if (typeof username !== "string" || username.trin().length < 3) {
+        return res.status(400).json({ error: "Username must be at least 3 characters" });
+    }
+
+    if (typeof password !== "string" || password.trim(). length <5) {
+        return res.status(400).json({ error: "Password must be at least 5 characters" });
+    }
+
+    if (typeof email !== "string" || !email.includes("@")) {
+        return res.status(400).json({ error: "Invalid email" });
+    }
+    
+    const existing = findUserByUsername(username.trim());
+    if (existing) {
+        return res.status(409).json({ error: "Username already exists "});
+    }
+
+    const newUser = createUser();
     newUser.id = generateID();
     newUser.tosAccepted = true;
+
+    newUser.username = username.trim();
+    newUser.password = password;
+    newUser.email = email.trim();
+
     saveUser(newUser);
 
-    res.json(newUser);
+    res.status(201)._writejson(newUser);
 });
 
 userRouter.post("/login", (req, res) => {

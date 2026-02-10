@@ -129,7 +129,7 @@ function dashboardHTML(user) {
         <button type="button" id="delete-user-btn"> Delete user </button>
         <button type="button" id="logout-btn"> Logout </button>
         
-        <p id="dass-error" class"cu-error" hidden></p>
+        <p id="dash-error" class"cu-error" hidden></p>
     </main>
     `;
 }
