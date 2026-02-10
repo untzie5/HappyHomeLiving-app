@@ -13,7 +13,7 @@ class DeleteUser extends HTMLElement {
       if (!confirm("Delete your account?")) return;
 
       try {
-        await apiRequest(`../api/user/${this.user.id}`, { method: "DELETE" });
+        await apiRequest(`/api/user/${this.user.id}`, { method: "DELETE" });
         this.dispatchEvent(new CustomEvent("user-deleted"));
       } catch (err) {
         alert(err.message);

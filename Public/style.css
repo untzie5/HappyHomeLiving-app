@@ -8,16 +8,13 @@ body {
   min-height: 100vh;
   background-color: #d4d6dc;
 
-  /* sentrer innhold på alle sider */
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* gjør at det ikke klemmes på mobil */
   padding: 1rem;
 }
 
-/* main-kortet på hver side */
 main {
   background-color: #EDEFF3;
   padding: 2rem;
@@ -61,7 +58,11 @@ button:hover {
   opacity: 0.9;
 }
 
-/* “Create user” strip under login */
+.page {
+    display: grid;
+    gap: 1rem;
+}
+
 .create-user-container {
   background-color: #EDEFF3;
   width: min(420px, 92vw);
@@ -84,10 +85,8 @@ button:hover {
   color: #EDEFF3;
 }
 
-/* utility */
 .hidden { display: none !important; }
 
-/* ===== ToS modal (div-basert) ===== */
 .modal {
   position: fixed;
   inset: 0;
@@ -121,7 +120,15 @@ button:hover {
   background: white;
 }
 
-/* ===== Create user dialog (<dialog>) ===== */
+.tos-dialog {
+  width: min(700px, 92vw);
+  height: min(70vh, 520px);
+  border: none;
+  padding: 0;
+  border-radius: 10px;
+}
+
+
 .cu-dialog {
   width: min(520px, 92vw);
   border: none;
