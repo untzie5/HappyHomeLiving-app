@@ -44,7 +44,7 @@ userRouter.post("/", (req, res) => {
 
   res.status(201).json(newUser);
 });
-
+4
 
 userRouter.post("/login", (req, res) => {
     const { username, password } = req.body ?? {};

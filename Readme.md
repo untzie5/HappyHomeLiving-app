@@ -10,8 +10,8 @@ Link to feature map / planning:
 https://miro.com/app/board/uXjVGROm4UU=/
 
 ## Project Management
-Project planning and work items are managed using Miro.
-https://miro.com/app/board/uXjVGROm4UU=/
+Project planning:
+https://trello.com/invite/b/699c097acefb7a758cf48ccb/ATTIbf377ee9fa3beebd9f19960f542c092880520D06/project-management
 
 ## Middleware planning: 
 https://miro.com/app/board/uXjVGROm4UU=/
