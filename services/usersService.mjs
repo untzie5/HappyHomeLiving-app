@@ -56,7 +56,9 @@ export function loginUser({ username, password } = {}) {
     return { status: 400, body: { error: "Missing username or password" } };
   }
 
-  const u = findUserByUsername(username);
+  const cleanUsername = username.trim();
+
+  const u = findUserByUsername(cleanUsername);
   if (!u) return { status: 401, body: { error: "Invalid username or password" } };
 
   if (!verifyPassword(password, u.password)) {
