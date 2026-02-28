@@ -9,8 +9,8 @@ userRouter.post("/", async (req, res) => {
   res.status(result.status).json(result.body);
 });
 
-userRouter.post("/login", (req, res) => {
-  const out = loginUser(req.body ?? {});
+userRouter.post("/login", async (req, res) => {
+  const out = await loginUser(req.body ?? {});
   res.status(out.status).json(out.body);
 });
 
