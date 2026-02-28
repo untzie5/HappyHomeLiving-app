@@ -1,4 +1,4 @@
-import { pool } from "../db.mjs";
+import { pool } from "../modules/db.mjs";
 
 function user() {
   return {
