@@ -35,7 +35,8 @@ export async function registerUser({ acceptToS, username, password, email } = {}
   const cleanUsername = username.trim();
   const cleanEmail = email.trim();
 
-  if (findUserByUsername(cleanUsername)) {
+  const existing = await findUserByUsername(cleanUsername);
+  if (existing) {
     return { status: 409, body: { error: "Username already exists" } };
   }
 

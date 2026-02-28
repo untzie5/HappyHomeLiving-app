@@ -5,8 +5,13 @@ const userRouter = express.Router();
 userRouter.use(express.json());
 
 userRouter.post("/", async (req, res) => {
-  const result  = await registerUser(req.body);
-  res.status(result.status).json(result.body);
+  try {
+    const result = await registerUser(req.body);
+    res.status(result.status).json(result.body);
+  } catch (err) {
+    console.error("REGISTER ERROR:", err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 userRouter.post("/login", async (req, res) => {
