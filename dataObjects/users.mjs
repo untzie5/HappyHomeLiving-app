@@ -1,4 +1,4 @@
-const Users = {};
+import { pool } from "../db.mjs";
 
 function user() {
   return {
@@ -11,53 +11,88 @@ function user() {
 }
 
 export function generateID() {
-  let id;
-  do {
-    id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(16);
-  } while (Users[id]);
-  return id;
+  return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(16);
 }
 
-export function saveUser(u) {
-  Users[u.id] = u;
-  return u;
+function rowToUser(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    username: row.username,
+    email: row.email,
+    password: row.password,
+    tosAccepted: row.tos_accepted,
+  };
 }
 
-export function getUserById(id) {
-  return Users[id] ?? null;
+export async function saveUser(u) {
+  const q = `
+    insert into users (id, username, email, password, tos_accepted)
+    values ($1, $2, $3, $4, $5)
+    returning id, username, email, password, tos_accepted
+  `;
+  const r = await pool.query(q, [u.id, u.username, u.email, u.password, u.tosAccepted]);
+  return rowToUser(r.rows[0]);
 }
 
-export function deleteUserById(id) {
-  if (!Users[id]) return false;
-  delete Users[id];
-  return true;
+export async function getUserById(id) {
+  const r = await pool.query(
+    `select id, username, email, password, tos_accepted from users where id = $1`,
+    [id]
+  );
+  return rowToUser(r.rows[0]);
 }
 
-export function findUserByUsername(username) {
-  return Object.values(Users).find((u) => u.username === username) ?? null;
+export async function deleteUserById(id) {
+  const r = await pool.query(`delete from users where id = $1`, [id]);
+  return r.rowCount > 0;
 }
 
-export function updateUserById(id, updates = {}) {
-  const u = Users[id];
-  if (!u) return null;
+export async function findUserByUsername(username) {
+  const r = await pool.query(
+    `select id, username, email, password, tos_accepted from users where username = $1`,
+    [username]
+  );
+  return rowToUser(r.rows[0]);
+}
+
+export async function updateUserById(id, updates = {}) {
+  const fields = [];
+  const values = [];
+  let i = 1;
 
   if (typeof updates.username === "string" && updates.username.trim().length >= 3) {
-    u.username = updates.username.trim();
+    fields.push(`username = $${i++}`);
+    values.push(updates.username.trim());
   }
 
   if (typeof updates.email === "string" && updates.email.includes("@")) {
-    u.email = updates.email.trim();
+    fields.push(`email = $${i++}`);
+    values.push(updates.email.trim());
   }
 
   if (typeof updates.password === "string" && updates.password.length > 0) {
-    u.password = updates.password;
+    fields.push(`password = $${i++}`);
+    values.push(updates.password);
   }
 
   if (typeof updates.tosAccepted === "boolean") {
-    u.tosAccepted = updates.tosAccepted;
+    fields.push(`tos_accepted = $${i++}`);
+    values.push(updates.tosAccepted);
   }
 
-  return u;
+  if (fields.length === 0) return await getUserById(id);
+
+  values.push(id);
+  const q = `
+    update users
+    set ${fields.join(", ")}
+    where id = $${i}
+    returning id, username, email, password, tos_accepted
+  `;
+
+  const r = await pool.query(q, values);
+  return rowToUser(r.rows[0] ?? null);
 }
 
 export default user;

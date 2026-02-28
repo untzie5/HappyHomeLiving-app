@@ -15,7 +15,7 @@ function safeUser(u) {
   return rest;
 }
 
-export function registerUser({ acceptToS, username, password, email } = {}) {
+export async function registerUser({ acceptToS, username, password, email } = {}) {
   if (acceptToS !== true) {
     return { status: 400, body: { error: "You must accept the Terms of Service to create an account" } };
   }
@@ -46,19 +46,19 @@ export function registerUser({ acceptToS, username, password, email } = {}) {
   u.email = cleanEmail;
   u.password = hashPassword(password); 
 
-  saveUser(u);
+  await saveUser(u);
 
   return { status: 201, body: safeUser(u) };
 }
 
-export function loginUser({ username, password } = {}) {
+export async function loginUser({ username, password } = {}) {
   if (typeof username !== "string" || typeof password !== "string") {
     return { status: 400, body: { error: "Missing username or password" } };
   }
 
   const cleanUsername = username.trim();
 
-  const u = findUserByUsername(cleanUsername);
+  const u = await findUserByUsername(cleanUsername);
   if (!u) return { status: 401, body: { error: "Invalid username or password" } };
 
   if (!verifyPassword(password, u.password)) {
@@ -68,13 +68,13 @@ export function loginUser({ username, password } = {}) {
   return { status: 200, body: safeUser(u) };
 }
 
-export function getUser(id) {
-  const u = getUserById(id);
+export async function getUser(id) {
+  const u = await getUserById(id);
   if (!u) return { status: 404, body: { error: "User not found" } };
   return { status: 200, body: safeUser(u) };
 }
 
-export function patchUser(id, patch = {}) {
+export async function patchUser(id, patch = {}) {
   const cleanPatch = { ...patch };
 
   if (typeof cleanPatch.password === "string" && cleanPatch.password.trim().length >= 5) {
@@ -83,14 +83,14 @@ export function patchUser(id, patch = {}) {
     delete cleanPatch.password; 
   }
 
-  const updated = updateUserById(id, cleanPatch);
+  const updated = await updateUserById(id, cleanPatch);
   if (!updated) return { status: 404, body: { error: "User not found" } };
 
   return { status: 200, body: safeUser(updated) };
 }
 
-export function removeUser(id) {
-  const ok = deleteUserById(id);
+export async function removeUser(id) {
+  const ok = await deleteUserById(id);
   if (!ok) return { status: 404, body: { error: "User not found" } };
 
   return { status: 200, body: { deleted: true, message: "Account deleted and consent withdrawn" } };

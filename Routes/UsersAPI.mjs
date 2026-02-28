@@ -4,9 +4,9 @@ import { registerUser, loginUser, getUser, patchUser, removeUser } from "../serv
 const userRouter = express.Router();
 userRouter.use(express.json());
 
-userRouter.post("/", (req, res) => {
-  const out = registerUser(req.body ?? {});
-  res.status(out.status).json(out.body);
+userRouter.post("/", async (req, res) => {
+  const result  = await registerUser(req.body);
+  res.status(result.status).json(result.body);
 });
 
 userRouter.post("/login", (req, res) => {
@@ -14,18 +14,18 @@ userRouter.post("/login", (req, res) => {
   res.status(out.status).json(out.body);
 });
 
-userRouter.get("/:id", (req, res) => {
-  const out = getUser(req.params.id);
+userRouter.get("/:id", async (req, res) => {
+  const out = await getUser(req.params.id);
   res.status(out.status).json(out.body);
 });
 
-userRouter.patch("/:id", (req, res) => {
-  const out = patchUser(req.params.id, req.body ?? {});
+userRouter.patch("/:id", async (req, res) => {
+  const out = await patchUser(req.params.id, req.body ?? {});
   res.status(out.status).json(out.body);
 });
 
-userRouter.delete("/:id", (req, res) => {
-  const out = removeUser(req.params.id);
+userRouter.delete("/:id", async (req, res) => {
+  const out = await removeUser(req.params.id);
   res.status(out.status).json(out.body);
 });
 
