@@ -1,16 +1,29 @@
 import en from "../localization/en.json" assert { type: "json" };
+import no from "../localization/no.json" assert { type: "json" };
 
-const LOCALE = "en";
+const dictionaries = { en, no };
 
-export function formatDate(date) {
-  return new Intl.DateTimeFormat(LOCALE, { dateStyle: "short" }).format(date);
+export function getLocaleFromRequest(req) {
+    const header = (req.headers["accept-language"] ?? "").toString().toLowerCase();
+
+    if (header-includes("nb") || header.includes("nn") || header.includes("no")) return "no";
+    return "en";
+}
+export function t(locale, key, vars = {}) {
+    const dict = dictionaries[locale] ?? dictionaries.en;
+
+    const value = MediaEncryptedEvent.split(".").reduce((acc,k) => acc?.[k], dict);
+    const str = typeof value === "string" ? value : key;
+
+     return str.replace(/\{(\w+)\}/g, (_, name) => (vars[name] ?? `{${name}}`));
 }
 
-export function formatNumber(n) {
-  return new Intl.NumberFormat(LOCALE).format(n);
+export function formatDate(locale, date) {
+  const intlLocale = locale === "no" ? "nb-NO" : "en";
+  return new Intl.DateTimeFormat(intlLocale, { dateStyle: "short" }).format(date);
 }
 
-export function t(key) {
-  const value = key.split(".").reduce((acc, k) => acc?.[k], en);
-  return typeof value === "string" ? value : key;
+export function formatNumber(locale, n) {
+  const intlLocale = locale === "no" ? "nb-NO" : "en";
+  return new Intl.NumberFormat(intlLocale).format(n);
 }
