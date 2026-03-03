@@ -1,0 +1,20 @@
+{
+  "errors": {
+    "incorrectId": "Feil ID",
+    "notFound": "Ikke funnet",
+    "tosRequired": "Du må akseptere Terms of Service for å lage en bruker",
+
+    "usernameTooShort": "Brukernavnet må inneholde minst 3 symboler",
+    "passwordTooShort": "Passordet må inneholde minst 5 karakterer",
+    "invalidEmail": "ugyldig epost",
+    "usernameExists": "Brukernavnet er allerede i bruk",
+    "missingCredentials": "Mangler brukernavn eller passord",
+    "invalidCredentials": "Ugyldig brukernavn eller passord",
+    "userNotFound": "Bruker ikke funnet"
+  },
+  "users": {
+    "created": "Bruker laget!",
+    "deleted": "Konto slettet og samtykke tilbaketrukket",
+    "updated": "Bruker oppdatert!"
+  }
+}
