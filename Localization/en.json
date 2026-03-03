@@ -1,12 +1,20 @@
 {
-    "errors": {
+  "errors": {
     "incorrectId": "Incorrect ID",
     "notFound": "Not found",
-    "tosRequired": "You must accept the Terms of Service to create an account"
-}, 
-"users": {
+    "tosRequired": "You must accept the Terms of Service to create an account",
+
+    "usernameTooShort": "Username must be at least 3 characters",
+    "passwordTooShort": "Password must be at least 5 characters",
+    "invalidEmail": "Invalid email",
+    "usernameExists": "Username already exists",
+    "missingCredentials": "Missing username or password",
+    "invalidCredentials": "Invalid username or password",
+    "userNotFound": "User not found"
+  },
+  "users": {
     "created": "User created!",
-    "deleted": "User deleted!",
-    "updated": "User update successful!"
-    }
+    "deleted": "Account deleted and consent withdrawn",
+    "updated": "User updated successfully!"
+  }
 }
