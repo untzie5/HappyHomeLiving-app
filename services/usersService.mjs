@@ -64,7 +64,7 @@ export async function loginUser({ username, password } = {}) {
   if (!u) return { status: 401, body: { error: "errors.invalidCredentials" } };
 
   if (!verifyPassword(password, u.password)) {
-    return { status: 401, body: { error: "errors.invaligCredentials" } };
+    return { status: 401, body: { error: "errors.invalidCredentials" } };
   }
 
   return { status: 200, body: safeUser(u) };
