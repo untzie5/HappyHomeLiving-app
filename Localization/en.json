@@ -1,0 +1,12 @@
+{
+    "errors": {
+    "incorrectId": "Incorrect ID",
+    "notFound": "Not found",
+    "tosRequired": "You must accept the Terms of Service to create an account"
+}, 
+"users": {
+    "created": "User created!",
+    "deleted": "User deleted!",
+    "updated": "User update successful!"
+    }
+}
