@@ -22,7 +22,7 @@ userRouter.use(express.json());
 userRouter.post("/", async (req, res) => {
   try {
     const result = await registerUser(req.body);
-    res.status(out.status).json(localizeResponse(req, out.body));
+res.status(result.status).json(localizeResponse(req, result.body));
   } catch (err) {
     console.error("REGISTER ERROR:", err);
     res.status(500).json({ error: err.message });
