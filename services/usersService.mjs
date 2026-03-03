@@ -61,7 +61,7 @@ export async function loginUser({ username, password } = {}) {
   const cleanUsername = username.trim();
 
   const u = await findUserByUsername(cleanUsername);
-  if (!u) return { status: 401, body: { error: "errors.invalidCredentials." } };
+  if (!u) return { status: 401, body: { error: "errors.invalidCredentials" } };
 
   if (!verifyPassword(password, u.password)) {
     return { status: 401, body: { error: "errors.invaligCredentials" } };
@@ -95,5 +95,5 @@ export async function removeUser(id) {
   const ok = await deleteUserById(id);
   if (!ok) return { status: 404, body: { error: "errors.userNotFound" } };
 
-  return { status: 200, body: { deleted: true, message: "users.deleted" } };
+  return { status: 200, body: { deleted: true, message: "Account deleted anrawn" } };
 }
