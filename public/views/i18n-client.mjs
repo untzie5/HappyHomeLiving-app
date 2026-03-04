@@ -13,7 +13,7 @@ async function loadDict(locale) {
 }
 
 function getValue(obj, key) {
-    return key.split(".").reduce((acc, k) => acc?.[k], ojb);
+    return key.split(".").reduce((acc, k) => acc?.[k], obj);
 }
 
 export async function t(key, vars = {}) {
