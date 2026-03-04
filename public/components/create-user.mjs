@@ -25,36 +25,46 @@ class CreateUser extends HTMLElement {
     const closeBtn = document.createElement("button");
     closeBtn.type = "button";
     closeBtn.className = "cu-close";
-
     closeBtn.addEventListener("click", () => this.close());
-    header.append(title,closeBtn);
+
+    header.append(title, closeBtn);
 
     const body = document.createElement("div");
     body.className = "cu-body";
 
+    //--------------------------
     const usernameLabel = document.createElement("label");
+    const usernameText = document.createElement("span");
     const username = document.createElement("input");
     username.type = "text";
     username.autocomplete = "username";
-    usernameLabel.append(username);
+    usernameLabel.append(usernameText, username);
 
+    //------------------------- 
     const passwordLabel = document.createElement("label");
+    const passwordText = document.createElement("span");
     const password = document.createElement("input");
     password.type = "password";
     password.autocomplete = "new-password";
-    passwordLabel.append(password);
+    passwordLabel.append(passwordText, password);
 
+    //--------------------------
     const emailLabel = document.createElement("label");
+    const emailText = document.createElement("span");
     const email = document.createElement("input");
     email.type = "email";
     email.autocomplete = "email";
-    emailLabel.append(email);
+    emailLabel.append(emailText, email);
 
     const note = document.createElement("p");
     note.className = "cu-note";
 
+    //-------------------------
     const termsRow = document.createElement("div");
     termsRow.className = "terms";
+
+    const tosLabel = document.createElement("label");
+    tosLabel.className = "terms-label";
 
     const tosCheckbox = document.createElement("input");
     tosCheckbox.type = "checkbox";
@@ -62,16 +72,21 @@ class CreateUser extends HTMLElement {
     const tosText = document.createElement("span");
     tosText.className = "terms-text";
 
-    termsRow.append(tosCheckbox, tosText);
+    tosLabel.append(tosCheckbox, tosText);
+    termsRow.append(tosLabel);
 
+    //--------------------------
     this.#error = document.createElement("p");
     this.#error.className = "cu-error";
     this.#error.hidden = true;
+    this.#error.setAttribute("aria-live", "polite");
 
     this.#success = document.createElement("p");
     this.#success.className = "cu-success";
     this.#success.hidden = true;
+    this.#success.setAttribute("aria-live", "polite");
 
+    //---------------------------
     const footer = document.createElement("div");
     footer.className = "cu-footer";
 
@@ -80,20 +95,21 @@ class CreateUser extends HTMLElement {
     submit.className = "cu-submit";
     footer.append(submit);
 
-    (async() => {
+    //----------------------------
+     (async () => {
       title.textContent = await t("ui.createUser.title");
       closeBtn.textContent = await t("ui.createUser.close");
-      usernameLabel.firstChild && (usernameLabel.firstChild.textContent = "");
-      usernameLabel.childNodes[0] && (usernameLabel.childNodes[0].textContent = "");
-      usernameLabel.prepend(document.createTextNode(await t("ui.createUser.username")));
 
-      passwordLabel.prepend(document.createTextNode(await t("ui.createUser.password")));
-      emailLabel.prepend(document.createTextNode(await t("ui.createUser.email")));
+      usernameText.textContent = await t("ui.createUser.username");
+      passwordText.textContent = await t("ui.createUser.password");
+      emailText.textContent = await t("ui.createUser.email");
+
       note.textContent = await t("ui.createUser.note");
       tosText.textContent = await t("ui.createUser.tosLink");
       submit.textContent = await t("ui.createUser.submit");
     })();
 
+    //-----------------------
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       this.#error.hidden = true;
@@ -146,6 +162,7 @@ class CreateUser extends HTMLElement {
     form.append(header, body, footer);
     this.#dialog.append(form);
 
+    //----------------------------
     this.#tosDialog = document.createElement("dialog");
     this.#tosDialog.className = "tos-dialog";
 
@@ -156,6 +173,7 @@ class CreateUser extends HTMLElement {
     tosHeader.className = "cu-header";
 
     const tosTitle = document.createElement("h2");
+    
     const tosClose = document.createElement("button");
     tosClose.type = "button";
     tosClose.className = "cu-close";
