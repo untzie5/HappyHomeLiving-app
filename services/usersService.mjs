@@ -8,7 +8,6 @@ import createUser, {
 } from "../dataObjects/users.mjs";
 
 import { hashPassword, verifyPassword } from "../modules/passwords.mjs";
-import { t } from "../modules/i18n.mjs";
 
 function safeUser(u) {
   if (!u) return u;
@@ -50,7 +49,7 @@ export async function registerUser({ acceptToS, username, password, email } = {}
 
   await saveUser(u);
 
-  return { status: 201, body: safeUser(u) };
+  return { status: 201, body: { user: safeUser(u), message: "users.created" } };
 }
 
 export async function loginUser({ username, password } = {}) {
