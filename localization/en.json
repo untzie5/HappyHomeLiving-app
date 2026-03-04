@@ -30,11 +30,18 @@
         "submit": "Create User",
         "tosTitle": "Terms of Service"
   },
+  "ui": {
+  "deleteUser": {
+    "button": "Delete account",
+    "confirm": "Are you sure you want to delete your account?",
+    "noUserSet": "No user is set"
+  }
+},
     "editUser": {
         "title": "Edit user",
         "newUsername": "New username (optional)",
         "newPassword": "New password (optional)",
-        "back": "Back",
+     "back": "Back",
         "updated": "User updated successfully!"
         } 
     }
