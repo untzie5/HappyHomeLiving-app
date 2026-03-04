@@ -6,7 +6,7 @@ const app =  express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use (express.static("Public"));
+app.use("/localization", express.static("localization"));
 
 app.get("/api/health", (req, res) => res.json({ ok: true }));
 app.use("/api/todos", todosRouter);
