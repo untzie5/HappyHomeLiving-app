@@ -10,11 +10,32 @@
     "usernameExists": "Username already exists",
     "missingCredentials": "Missing username or password",
     "invalidCredentials": "Invalid username or password",
-    "userNotFound": "User not found"
+    "userNotFound": "User not found",
+    "required": "This field is required"
   },
   "users": {
     "created": "User created!",
     "deleted": "Account deleted and consent withdrawn",
     "updated": "User updated successfully!"
-  }
+  },
+  "ui": {
+    "createUser": {
+        "title": "Create User",
+        "close": "close",
+        "username": "Username",
+        "password": "Password",
+        "email": "Email",
+        "note": "You must accept Terms of Service to create an account.",
+        "tosLink": "I agree to the Terms of Service",
+        "submit": "Create User",
+        "tosTitle": "Terms of Service"
+  },
+    "editUser": {
+        "title": "Edit user",
+        "newUsername": "New username (optional)",
+        "newPassword": "New password (optional)",
+        "back": "Back",
+        "updated": "User updated successfully!"
+        } 
+    }
 }

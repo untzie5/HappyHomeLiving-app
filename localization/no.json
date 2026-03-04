@@ -10,11 +10,32 @@
     "usernameExists": "Brukernavnet er allerede i bruk",
     "missingCredentials": "Mangler brukernavn eller passord",
     "invalidCredentials": "Ugyldig brukernavn eller passord",
-    "userNotFound": "Bruker ikke funnet"
+    "userNotFound": "Bruker ikke funnet",
+    "required": "Dette feltet er påkrevd"
   },
   "users": {
-    "created": "Bruker laget!",
+    "created": "Bruker opprettet!",
     "deleted": "Konto slettet og samtykke tilbaketrukket",
     "updated": "Bruker oppdatert!"
-  }
+  },
+    "ui": {
+    "createUser": {
+        "title": "Opprett bruker",
+        "close": "Lukk",
+        "username": "Brukernavn",
+        "password": "Passord",
+        "email": "E-post",
+        "note": "Du må akseptere vilkårene for å opprette en konto.",
+        "tosLink": "Jeg godtar vilkårene",
+        "submit": "Opprett bruker",
+        "tosTitle": "Vilkår"
+  },
+    "editUser": {
+        "title": "Rediger bruker",
+        "newUsername": "Nytt brukernavn (valgfritt)",
+        "newPassword": "Nytt passord (valgfritt",
+        "back": "Tilbake",
+        "updated": "Bruker oppdatert!"
+        } 
+    }
 }
