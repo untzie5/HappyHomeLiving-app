@@ -188,7 +188,7 @@ class CreateUser extends HTMLElement {
 
     const frame = document.createElement("iframe");
     frame.className = "tos-frame";
-    frame.src = "/views/ToS.md"; 
+    frame.src = "/ToS.md"; 
 
     tosCard.append(tosHeader, frame);
     this.#tosDialog.append(tosCard);
