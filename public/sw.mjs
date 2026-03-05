@@ -1,4 +1,4 @@
-const CACHE_NAME = "hhl-cache-v2";
+const CACHE_NAME = "hhl-cache-v3";
 
 const APP_SHELL = [
   "/",
@@ -54,7 +54,9 @@ self.addEventListener("fetch", (e) => {
   if (url.pathname.startsWith("/api/")) return;
 
   if (req.mode === "navigate") {
-    e.respondWith(caches.match("/index.html").then((r) => r || fetch(req)));
+    e.respondWith(
+      caches.match("/index.html").then((cached) => cached || fetch(req))
+    );
     return;
   }
 
@@ -62,13 +64,24 @@ self.addEventListener("fetch", (e) => {
     caches.match(req).then((cached) => {
       if (cached) return cached;
 
-      return fetch(req).then((res) => {
-        if (req.method === "GET" && res.ok) {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
-        }
-        return res;
-      });
+      return fetch(req)
+        .then((res) => {
+          if (!res || !res.ok) return res;
+
+          const ct = res.headers.get("content-type") || "";
+          const isProbablyHtml = ct.includes("text/html");
+          const isModuleRequest =
+            req.destination === "script" || req.headers.get("accept")?.includes("text/javascript");
+
+          if (isProbablyHtml && isModuleRequest) return res;
+
+          if (req.method === "GET") {
+            const copy = res.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
+          }
+          return res;
+        })
+        .catch(() => cached);
     })
   );
 });
