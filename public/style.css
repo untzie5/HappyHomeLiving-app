@@ -33,6 +33,14 @@ form {
   flex-direction: column;
   gap: 1rem;
 }
+form > div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+label {
+  display: block;
+}
 
 label {
   font-size: 0.9rem;
@@ -89,7 +97,7 @@ button:hover {
   display: none !important;
 }
 
-/* ---------- MODAL ---------- */
+/* -------------------- */
 
 .modal {
   position: fixed;
@@ -117,7 +125,7 @@ button:hover {
   border-bottom: 1px solid #796D64;
 }
 
-/* ---------- TOS DIALOG ---------- */
+/* -------------------- */
 
 .tos-frame {
   width: 100%;
@@ -134,20 +142,19 @@ button:hover {
   border-radius: 10px;
 }
 
-/* ---------- CREATE USER DIALOG ---------- */
+/* -------------------- */
 
 .cu-dialog {
   width: min(520px, 92vw);
   border: none;
   padding: 0;
   border-radius: 10px;
-  overflow: hidden; /* moved here instead of .cu-card */
+  overflow: hidden; 
 }
 
 .cu-card {
   background: #EDEFF3;
   border-radius: 10px;
-  /* overflow removed to prevent label clipping */
 }
 
 .cu-header {
@@ -186,7 +193,6 @@ button:hover {
   font-size: 0.9rem;
 }
 
-/* ensure label text renders correctly */
 .cu-body label span {
   display: block;
 }
