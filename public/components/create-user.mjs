@@ -142,7 +142,7 @@ class CreateUser extends HTMLElement {
           }),
         });
 
-        this.#success.textContent = await t("User created!");
+        this.#success.textContent = await t("User created");
         this.#success.hidden = false;
       } catch (err) {
         this.#showError(err.message);
@@ -188,7 +188,7 @@ class CreateUser extends HTMLElement {
 
     const frame = document.createElement("iframe");
     frame.className = "tos-frame";
-    frame.src = "/ToS.md"; 
+    frame.src = "/views/ToS.md"; 
 
     tosCard.append(tosHeader, frame);
     this.#tosDialog.append(tosCard);

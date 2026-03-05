@@ -1,24 +1,26 @@
 import { loadUser, clearUser } from "../components/session.mjs";
 import "../../components/delete-user.mjs";
 
-const user = loadUser();
-if (!user) location.replace("../login-view/login.html");
+export async function mount({ app, navigate }) {
+  const user = loadUser();
+  if (!user) return navigate("/login");
 
-document.getElementById("usernameText").textContent = user.username;
+  app.querySelector("#usernameText").textContent = user.username;
 
-document.getElementById("logout-btn")?.addEventListener("click", () => {
-  clearUser();
-  location.href = "../login-view/login.html";
-});
+  app.querySelector("#logout-btn")?.addEventListener("click", () => {
+    clearUser();
+    navigate("/login");
+  });
 
-document.getElementById("edit-user-btn")?.addEventListener("click", () => {
-  location.href = "../edit-view/edit-user.html";
-});
+  app.querySelector("#edit-user-btn")?.addEventListener("click", () => {
+    navigate("/edit-user");
+  });
 
-const del = document.getElementById("deleteUser");
-del.user = user;
+  const del = app.querySelector("#deleteUser");
+  del.user = user;
 
-del.addEventListener("user-deleted", () => {
-  clearUser();
-  location.href = "../login-view/login.html";
-});
+  del.addEventListener("user-deleted", () => {
+    clearUser();
+    navigate("/login");
+  });
+}
