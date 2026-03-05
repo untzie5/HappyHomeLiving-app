@@ -1,4 +1,4 @@
-const CACHE_NAME = "hhl-cache-v3";
+const CACHE_NAME = "hhl-cache-v4";
 
 const APP_SHELL = [
   "/",
@@ -12,14 +12,12 @@ const APP_SHELL = [
   "/views/edit-view/edit-user.html",
   "/views/ToS.md",
 
-  "/components/create-user.mjs",
-  "/components/delete-user.mjs",
-  "/components/api.mjs",
-  "/components/sessions.mjs",
+ "/components/create-user.mjs",
+ "/components/delete-user.mjs",
+ "/components/api.mjs",
+ "/components/session.mjs",
 
   "/views/i18n-client.mjs",
-  "/views/components/api.mjs",
-  "/views/components/session.mjs",
   "/views/login-view/login.mjs",
   "/views/dashboard-view/dashboard.mjs",
   "/views/edit-view/edit-user.mjs",

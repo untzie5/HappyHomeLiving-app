@@ -1,4 +1,4 @@
-import { apiRequest } from "../api.mjs";
+import { apiRequest } from "./api.mjs";
 import { t } from "../views/i18n-client.mjs";
 
 class CreateUser extends HTMLElement {
@@ -142,7 +142,7 @@ class CreateUser extends HTMLElement {
           }),
         });
 
-        this.#success.textContent = await t("User created");
+        this.#success.textContent = await t("users.created");
         this.#success.hidden = false;
       } catch (err) {
         this.#showError(err.message);
