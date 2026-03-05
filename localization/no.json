@@ -29,16 +29,13 @@
         "tosLink": "Jeg godtar vilkårene",
         "submit": "Opprett bruker",
         "tosTitle": "Vilkår"
-  },
-
-  "ui": {
-  "deleteUser": {
-    "button": "Slett konto",
-    "confirm": "Er du sikker på at du vil slette kontoen?",
-    "noUserSet": "Ingen bruker satt"
-  }
-},
-    "editUser": {
+    },
+      "deleteUser": {
+        "button": "Slett konto",
+        "confirm": "Er du sikker på at du vil slette kontoen?",
+        "noUserSet": "Ingen bruker satt"
+   },
+      "editUser": {
         "title": "Rediger bruker",
         "newUsername": "Nytt brukernavn (valgfritt)",
         "newPassword": "Nytt passord (valgfritt",
