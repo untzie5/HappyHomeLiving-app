@@ -1,4 +1,4 @@
-import { apiRequest } from "../views/components/api.mjs";
+import { apiRequest } from "../api.mjs";
 import { t } from "../views/i18n-client.mjs";
 
 class CreateUser extends HTMLElement {

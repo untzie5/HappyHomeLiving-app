@@ -12,6 +12,11 @@ const APP_SHELL = [
   "/views/edit-view/edit-user.html",
   "/views/ToS.md",
 
+  "/components/create-user.mjs",
+  "/components/delete-user.mjs",
+  "/components/api.mjs",
+  "/components/sessions.mjs",
+
   "/views/i18n-client.mjs",
   "/views/components/api.mjs",
   "/views/components/session.mjs",
@@ -19,11 +24,13 @@ const APP_SHELL = [
   "/views/dashboard-view/dashboard.mjs",
   "/views/edit-view/edit-user.mjs",
 
+
   "/localization/en.json",
   "/localization/no.json",
 
   "/assets/icons/IconHHL-192.png",
   "/assets/icons/IconHHL-512.png",
+  
 ];
 
 self.addEventListener("install", (e) => {
