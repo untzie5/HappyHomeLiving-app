@@ -1,5 +1,5 @@
-import { loadUser, clearUser } from "../components/session.mjs";
-import "../../components/delete-user.mjs";
+import { loadUser, clearUser } from "/components/session.mjs";
+import "/components/delete-user.mjs";
 
 export async function mount({ app, navigate }) {
   const user = loadUser();

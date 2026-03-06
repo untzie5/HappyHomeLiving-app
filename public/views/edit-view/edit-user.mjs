@@ -1,5 +1,5 @@
-import { apiRequest } from "../components/api.mjs";
-import { loadUser, saveUser } from "../components/session.mjs";
+import { apiRequest } from "../../components/api.mjs";
+import { loadUser, saveUser } from "/components/session.mjs";
 import { t } from "../i18n-client.mjs";
 
 export async function mount({ app, navigate }) {

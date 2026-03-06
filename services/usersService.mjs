@@ -93,6 +93,5 @@ export async function patchUser(id, patch = {}) {
 export async function removeUser(id) {
   const ok = await deleteUserById(id);
   if (!ok) return { status: 404, body: { error: "errors.userNotFound" } };
-
-  return { status: 200, body: { deleted: true, message: "Account deleted anrawn" } };
+  return { status: 200, body: { deleted: true, message: "users.deleted" } };
 }

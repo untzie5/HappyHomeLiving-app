@@ -1,4 +1,4 @@
-const CACHE_NAME = "hhl-cache-v4";
+const CACHE_NAME = "hhl-cache-v5";
 
 const APP_SHELL = [
   "/",
@@ -6,29 +6,29 @@ const APP_SHELL = [
   "/style.css",
   "/app.mjs",
   "/manifest.json",
+  "/ToS.md",
+  "/Privacy-policy.md",
 
   "/views/login-view/login.html",
   "/views/dashboard-view/dashboard.html",
   "/views/edit-view/edit-user.html",
-  "/views/ToS.md",
 
- "/components/create-user.mjs",
- "/components/delete-user.mjs",
- "/components/api.mjs",
- "/components/session.mjs",
+  "/components/create-user.mjs",
+  "/components/delete-user.mjs",
+  "/components/api.mjs",
+  "/components/session.mjs",
 
   "/views/i18n-client.mjs",
   "/views/login-view/login.mjs",
   "/views/dashboard-view/dashboard.mjs",
   "/views/edit-view/edit-user.mjs",
 
-
   "/localization/en.json",
   "/localization/no.json",
 
-  "/assets/icons/IconHHL-192.png",
-  "/assets/icons/IconHHL-512.png",
-  
+  "/assets/icons/house-192.png",
+  "/assets/icons/house-512.png",
+  "/assets/icons/houseFavicon.png",
 ];
 
 self.addEventListener("install", (e) => {
