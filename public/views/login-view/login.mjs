@@ -1,6 +1,6 @@
-import { apiRequest } from "../components/api.mjs";
-import { saveUser } from "../components/session.mjs";
-import "../../components/create-user.mjs";
+import { apiRequest } from "/components/api.mjs";
+import { saveUser } from "/components/session.mjs";
+import "/components/create-user.mjs";
 
 export async function mount({ app, navigate }) {
   const form = app.querySelector("#login-form");

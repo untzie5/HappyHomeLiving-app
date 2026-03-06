@@ -1,5 +1,5 @@
-import { apiRequest } from "./api.mjs";
-import { t } from "../views/i18n-client.mjs";
+import { apiRequest } from "/components/api.mjs";
+import { t } from "/views/i18n-client.mjs";
 
 class CreateUser extends HTMLElement {
   #dialog;
