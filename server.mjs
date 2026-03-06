@@ -20,9 +20,7 @@ app.get("/api/health", (req, res) => res.json({ ok: true }));
 app.use("/api/todos", todosRouter);
 app.use("/api/user", UserRouter);
 
-app.get("*", (req, res, next) => {
-  if (req.path.startsWith("/api/")) return next();
-
+app.get(/^(?!\/api\/).*/, (req, res, next) => {
   if (req.path.includes(".")) return next();
 
   res.sendFile(path.join(publicDir, "index.html"));
