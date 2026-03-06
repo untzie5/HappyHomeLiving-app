@@ -39,6 +39,7 @@
         "title": "Edit user",
         "newUsername": "New username (optional)",
         "newPassword": "New password (optional)",
+        "confirm": "confirm",
         "back": "Back",
         "updated": "User updated successfully!"
         } 

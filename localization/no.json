@@ -39,6 +39,7 @@
         "title": "Rediger bruker",
         "newUsername": "Nytt brukernavn (valgfritt)",
         "newPassword": "Nytt passord (valgfritt",
+        "confirm": "Bekreft",
         "back": "Tilbake",
         "updated": "Bruker oppdatert!"
         } 
