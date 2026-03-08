@@ -1,4 +1,4 @@
-import { loadUser } from "../components/session.mjs";
+import { loadUser } from "/components/session.mjs";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

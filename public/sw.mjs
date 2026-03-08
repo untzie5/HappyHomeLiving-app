@@ -1,4 +1,4 @@
-const CACHE_NAME = "hhl-cache-v5";
+const CACHE_NAME = "hhl-cache-v6";
 
 const APP_SHELL = [
   "/",
