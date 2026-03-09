@@ -1,7 +1,9 @@
 {
+  "id": "/",
   "name": "Happy Home Living",
   "short_name": "HappyHome",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#EDEFF3",
   "theme_color": "#4E433F",
@@ -9,12 +11,14 @@
     {
       "src": "/assets/icons/house-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/assets/icons/house-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
