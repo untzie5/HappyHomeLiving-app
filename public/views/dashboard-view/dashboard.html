@@ -1,11 +1,31 @@
-<main>
-    <h1>Happy Home Living</h1>
-    <p>Logged in as <strong id="usernameText"></strong></p>
+<main class="dashboard-page">
+  <header class="dashboard-header">
+    <div class="brand-area">
+      <h1>Happy Home Living</h1>
 
-    <button type="button" id="edit-user-btn">Edit user</button>
-    <button type="button" id="logout-btn">Logout</button>
+      <div class="user-bar">
+        <p class="user-text">
+          User: <strong id="usernameText"></strong>
+        </p>
 
-    <delete-user id="deleteUser"></delete-user>
+        <button type="button" id="edit-user-btn" class="icon-btn">
+          Edit
+        </button>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button type="button" id="logout-btn">Logout</button>
+      <delete-user id="deleteUser"></delete-user>
+    </div>
+  </header>
 
   <p id="dash-error" class="cu-error" hidden></p>
+
+  <section class="dashboard-content">
+    <section class="calendar-section">
+      <h2 id="calendarTitle">Calendar</h2>
+      <div id="calendar-container"></div>
+    </section>
+  </section>
 </main>
