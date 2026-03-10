@@ -17,16 +17,6 @@ export async function mount({ app, navigate }) {
     navigate("/login");
   });
 
-  const del = app.querySelector("#deleteUser");
-  if (del) {
-    del.user = user;
-
-    del.addEventListener("user-deleted", () => {
-      clearUser();
-      navigate("/login");
-    });
-  }
-
   renderCalendar(app);
   wireTodoForm(app);
   await renderTodos(app);
