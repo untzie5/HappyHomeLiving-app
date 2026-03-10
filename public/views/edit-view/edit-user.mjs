@@ -19,6 +19,7 @@ export async function mount({ app, navigate }) {
   app.querySelector("#danger-title").textContent = await t("ui.editUser.dangerTitle");
   app.querySelector("#danger-text").textContent = await t("ui.editUser.dangerText");
 
+
   app.querySelector("#back-btn")?.addEventListener("click", () => {
     navigate("/dashboard");
   });
