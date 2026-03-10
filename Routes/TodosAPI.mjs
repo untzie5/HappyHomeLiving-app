@@ -35,7 +35,7 @@ router.post("/", quietHours(), (req, res) => {
   res.status(201).json({
     created: true,
     quietHour: req.isQuietHours,
-    notification: req.isQuietHours ? "suppressed" : "wouuld send",
+    notification: req.isQuietHours ? "suppressed" : "would send",
     todo
   });
 });
@@ -58,7 +58,7 @@ router.patch("/:id" , quietHours(), (req, res) => {
       updated: true, 
       removed: true,
       quietHour: req.isQuietHours,
-      notification: req.isQuietHours ? "supressed" : "would send",
+      notification: req.isQuietHours ? "suppressed" : "would send",
       id: todo.id
     });
   }
