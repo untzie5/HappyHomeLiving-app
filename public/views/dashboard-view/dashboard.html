@@ -8,7 +8,7 @@
           User: <strong id="usernameText"></strong>
         </p>
 
-        <button type="button" id="edit-user-btn" class="icon-btn">
+        <button type="button" id="edit-user-btn" class="edit-btn">
           Edit
         </button>
       </div>
@@ -26,6 +26,30 @@
     <section class="calendar-section">
       <h2 id="calendarTitle">Calendar</h2>
       <div id="calendar-container"></div>
+    </section>
+
+    <sectionclass="todo-form">
+      <h2 id="todoTitle"> To do</h2>
+
+      <form id="todo-form" class="todo-form">
+        <input id="todo-input" name="text" type="text" placeholder="Add a task..." required/>
+
+        <label class="todo-check">
+          <input type="checkbox" id="repeatWeekly" name="repeatWeekly" />
+          Repeat weekly
+        </label>
+
+         <label class="todo-check">
+          <input type="checkbox" id="removeWhenDone" name="removeWhenDone" />
+          Remove when done
+        </label>
+
+         <button type="submit">Add</button>
+      </form>
+
+      <p id="todo-error" class="cu-error" hidden></p>
+
+      <ul id="todo-list" class="todo-list"></ul>
     </section>
   </section>
 </main>
