@@ -1,6 +1,5 @@
 import { loadUser, clearUser } from "/components/session.mjs";
 import { apiRequest } from "/components/api.mjs";
-import "/components/delete-user.mjs";
 
 export async function mount({ app, navigate }) {
   const user = loadUser();
