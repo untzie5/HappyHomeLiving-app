@@ -233,6 +233,28 @@ form > div {
   cursor: pointer;
 }
 
+/* ---------- EDIT USER / DANGER ZONE ---------*/
+
+.danger-zone {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #caa5a5;
+  border-radius: 10px;
+  background: #f6eaea;
+}
+
+.danger-zone h2 {
+  margin-top: 0;
+  color: #7a2f2f;
+  font-size: 1rem;
+}
+
+.danger-zone p {
+  margin-top: 0;
+  color: #4E433F;
+  font-size: 0.95rem;
+}
+
 /* ---------- TERMS CHECKBOX / LINK ----------*/
 
 .terms {
@@ -351,10 +373,6 @@ form > div {
   opacity: 1;
 }
 
-.icon-btn:hover {
-  background: #3d3431;
-  opacity: 1;
-}
 
 /* ---------- CALENDAR ----------*/
 

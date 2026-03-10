@@ -1,6 +1,7 @@
 import { apiRequest } from "/components/api.mjs";
 import { loadUser, saveUser } from "/components/session.mjs";
 import { t } from "/views/i18n-client.mjs";
+import "/components/delete-user.mjs";
 
 export async function mount({ app, navigate }) {
   const user = loadUser();
@@ -10,7 +11,6 @@ export async function mount({ app, navigate }) {
   const err = app.querySelector("#edit-error");
   const ok = app.querySelector("#edit-success");
 
-  // i18n labels/buttons
   app.querySelector("h1").textContent = await t("ui.editUser.title");
   app.querySelector("#lbl-username").textContent = await t("ui.editUser.newUsername");
   app.querySelector("#lbl-password").textContent = await t("ui.editUser.newPassword");
@@ -20,6 +20,16 @@ export async function mount({ app, navigate }) {
   app.querySelector("#back-btn")?.addEventListener("click", () => {
     navigate("/dashboard");
   });
+
+  const del = app.querySelector("#deleteuser");
+  if (del) {
+    del.user = user; 
+
+    del.addEventListener("user-deleted", () => {
+      clearUser();
+      navigate("/login");
+    });
+  }
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
