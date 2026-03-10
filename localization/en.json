@@ -41,7 +41,9 @@
         "newPassword": "New password (optional)",
         "confirm": "confirm",
         "back": "Back",
-        "updated": "User updated successfully!"
+        "updated": "User updated successfully!",
+        "dangerTitle": "Danger zone",
+        "dangerText": "Delete your account permanently."
         } 
     }
 }

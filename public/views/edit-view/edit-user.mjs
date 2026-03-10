@@ -16,6 +16,8 @@ export async function mount({ app, navigate }) {
   app.querySelector("#lbl-password").textContent = await t("ui.editUser.newPassword");
   app.querySelector("#confirm-btn").textContent = await t("ui.editUser.confirm");
   app.querySelector("#back-btn").textContent = await t("ui.editUser.back");
+  app.querySelector("#danger-title").textContent = await t("ui.editUser.dangerTitle");
+  app.querySelector("#danger-text").textContent = await t("ui.editUser.dangerText");
 
   app.querySelector("#back-btn")?.addEventListener("click", () => {
     navigate("/dashboard");
