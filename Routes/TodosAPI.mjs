@@ -1,5 +1,5 @@
 import express from "express";
-import { quietHours } from "./middleware/QuietHours.mjs";
+import { quietHours } from "../middleware/QuietHours.mjs";
 
 const router = express.Router();
 
