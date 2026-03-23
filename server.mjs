@@ -15,8 +15,6 @@ app.use(express.json());
 
 app.use(express.static(publicDir));
 app.use("/localization", express.static("localization"));
-
-app.get("/api/health", (req, res) => res.json({ ok: true }));
 app.use("/api/todos", todosRouter);
 app.use("/api/user", UserRouter);
 
