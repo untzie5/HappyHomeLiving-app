@@ -163,39 +163,37 @@ class CreateUser extends HTMLElement {
     this.#dialog.append(form);
 
     //----------------------------
-    this.#tosDialog = document.createElement("dialog");
-    this.#tosDialog.className = "tos-dialog";
+   this.#tosDialog = document.createElement("dialog");
+this.#tosDialog.className = "tos-dialog";
 
-    const tosCard = document.createElement("div");
-    tosCard.className = "cu-card";
+const tosCard = document.createElement("div");
+tosCard.className = "cu-card tos-card";
 
-    const tosHeader = document.createElement("div");
-    tosHeader.className = "cu-header";
+const tosBody = document.createElement("div");
+tosBody.className = "tos-html-content";
+tosBody.innerHTML = `<p>Loading...</p>`;
 
-    const tosTitle = document.createElement("h2");
-    
-    const tosClose = document.createElement("button");
-    tosClose.type = "button";
-    tosClose.className = "cu-close";
-    tosClose.addEventListener("click", () => this.#tosDialog.close());
+tosCard.append(tosBody);
+this.#tosDialog.append(tosCard);
 
-    (async () => {
-      tosTitle.textContent = await t("ui.createUser.tosTitle");
-      tosClose.textContent = await t("ui.createUser.close");
-    })();
+tosText.addEventListener("click", async () => {
+  try {
+    const res = await fetch("/views/tos-pp-view.html", { cache: "no-store" });
+    if (!res.ok) throw new Error("Failed to load Terms and Privacy view");
 
-    tosHeader.append(tosTitle, tosClose);
+    tosBody.innerHTML = await res.text();
 
-    const frame = document.createElement("iframe");
-    frame.className = "tos-frame";
-    frame.src = "/ToS.md"; 
+    const closeBtn = tosBody.querySelector("#cu-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => this.#tosDialog.close());
+    }
 
-    tosCard.append(tosHeader, frame);
-    this.#tosDialog.append(tosCard);
-
-    tosText.addEventListener("click", () => {
-      this.#tosDialog.showModal();
-    });
+    this.#tosDialog.showModal();
+  } catch (err) {
+    tosBody.innerHTML = `<p class="cu-error">${err.message}</p>`;
+    this.#tosDialog.showModal();
+  }
+});
 
     this.append(this.#dialog, this.#tosDialog);
   }
