@@ -1,4 +1,4 @@
-/* ---------- GLOBAL ----------*/
+/* ---------- GLOBAL ---------- */
 
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #d4d6dc;
+  background: #d4d6dc;
   padding: 1rem;
 }
 
@@ -16,26 +16,46 @@ body {
   width: 100%;
 }
 
-/* ---------- GENERAL ----------*/
+/* ---------- GENERAL ---------- */
+
+main,
+.create-user-container,
+.dashboard-header,
+.todo-section,
+.calendar-section,
+.cu-card {
+  background: #EDEFF3;
+  border-radius: 10px;
+}
 
 main {
-  background-color: #EDEFF3;
-  padding: 2rem;
-  border-radius: 8px;
   width: min(420px, 92vw);
   margin: 0 auto;
+  padding: 2rem;
+}
+
+h1,
+h2,
+label,
+.user-text,
+.create-user-container p,
+#tos-content,
+.danger-zone p {
+  color: #4E433F;
 }
 
 h1 {
-  margin-top: 0;
+  margin: 0;
   text-align: center;
-  color: #4E433F;
+}
+
+h2 {
+  margin: 0;
 }
 
 label {
   display: block;
   font-size: 0.9rem;
-  color: #4E433F;
 }
 
 input {
@@ -46,7 +66,7 @@ input {
 
 button {
   padding: 0.6rem;
-  background-color: #5C815C;
+  background: #5C815C;
   color: #EDEFF3;
   border: none;
   border-radius: 4px;
@@ -72,7 +92,35 @@ form > div {
   display: none !important;
 }
 
-/* ---------- LOGIN / PAGE LAYOUT ----------*/
+/* ---------- APP TITLE / LOGO ---------- */
+
+.app-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.app-title h1 {
+  text-align: left;
+}
+
+.app-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+/* Dashboard-variant: venstrestilt */
+.brand-area .app-title {
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- LOGIN / PAGE LAYOUT ---------- */
 
 .page {
   display: grid;
@@ -80,18 +128,15 @@ form > div {
 }
 
 .create-user-container {
-  background-color: #EDEFF3;
   width: min(420px, 92vw);
   margin: 1rem auto 0;
   padding: 0.75rem 1rem;
-  border-radius: 8px;
   display: flex;
   align-items: center;
 }
 
 .create-user-container p {
   margin: 0;
-  color: #4E433F;
   font-size: 0.9rem;
 }
 
@@ -99,7 +144,7 @@ form > div {
   margin-left: auto;
 }
 
-/* ---------- MODAL / DIALOG ----------*/
+/* ---------- DIALOG / MODAL ---------- */
 
 .modal {
   position: fixed;
@@ -111,23 +156,26 @@ form > div {
   padding: 1rem;
 }
 
-.modal-content {
+.modal-content,
+.tos-dialog {
   width: min(700px, 92vw);
   height: min(70vh, 520px);
-  background: #EDEFF3;
-  border-radius: 10px;
   overflow: hidden;
 }
 
-.modal-header {
+.modal-content {
+  background: #EDEFF3;
+  border-radius: 10px;
+}
+
+.modal-header,
+.cu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #796D64;
 }
-
-/* ---------- TERMS OF SERVICE DIALOG ----------*/
 
 .tos-card {
   max-height: 80vh;
@@ -154,7 +202,6 @@ form > div {
 #tos-content {
   display: grid;
   gap: 0.75rem;
-  color: #4E433F;
   line-height: 1.55;
 }
 
@@ -163,7 +210,11 @@ form > div {
   color: #4E433F;
 }
 
-#tos-content p {
+#tos-content p,
+#cu-close,
+.cu-error,
+.cu-success,
+.cu-note {
   margin: 0;
 }
 
@@ -171,7 +222,7 @@ form > div {
   width: fit-content;
 }
 
-/* ---------- CREATE USER / CUSTOM UI ----------*/
+/* ---------- CREATE USER ---------- */
 
 .cu-dialog {
   width: min(520px, 92vw);
@@ -181,21 +232,7 @@ form > div {
   overflow: hidden;
 }
 
-.cu-card {
-  background: #EDEFF3;
-  border-radius: 10px;
-}
-
-.cu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #796D64;
-}
-
 .cu-header h2 {
-  margin: 0;
   color: #4E433F;
   font-size: 1.05rem;
 }
@@ -218,7 +255,6 @@ form > div {
 .cu-body label {
   display: grid;
   gap: 0.25rem;
-  color: #4E433F;
   font-size: 0.9rem;
 }
 
@@ -227,19 +263,16 @@ form > div {
 }
 
 .cu-note {
-  margin: 0.25rem 0 0;
   font-size: 0.85rem;
   color: #796D64;
 }
 
 .cu-error {
-  margin: 0;
   color: #b00020;
   font-size: 0.9rem;
 }
 
 .cu-success {
-  margin: 0;
   color: #2a7a2a;
   font-size: 0.9rem;
 }
@@ -252,15 +285,11 @@ form > div {
 }
 
 .cu-submit {
-  background: #5C815C;
-  color: #EDEFF3;
-  border: none;
   border-radius: 6px;
   padding: 0.6rem 0.9rem;
-  cursor: pointer;
 }
 
-/* ---------- EDIT USER / DANGER ZONE ---------*/
+/* ---------- EDIT USER ---------- */
 
 .danger-zone {
   margin-top: 1.5rem;
@@ -271,25 +300,29 @@ form > div {
 }
 
 .danger-zone h2 {
-  margin-top: 0;
+  margin: 0 0 0.5rem;
   color: #7a2f2f;
   font-size: 1rem;
 }
 
 .danger-zone p {
   margin-top: 0;
-  color: #4E433F;
   font-size: 0.95rem;
 }
 
-/* ---------- TERMS CHECKBOX / LINK ----------*/
+/* ---------- TERMS ---------- */
 
 .terms {
   font-size: 0.85rem;
 }
 
-.terms-label {
-  display: inline-flex;
+.terms-label,
+.todo-check,
+.todo-left,
+.todo-actions,
+.user-bar,
+.header-actions {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
 }
@@ -302,8 +335,8 @@ form > div {
 }
 
 .terms input {
-  cursor: pointer;
   margin: 0;
+  cursor: pointer;
 }
 
 .terms-text {
@@ -317,7 +350,7 @@ form > div {
   color: #359aff;
 }
 
-/* ---------- DASHBOARD LAYOUT ----------*/
+/* ---------- DASHBOARD ---------- */
 
 .dashboard-page {
   width: min(1100px, 95vw);
@@ -333,33 +366,11 @@ form > div {
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1rem 1.5rem;
-  background: #EDEFF3;
-  border-radius: 12px;
   margin-bottom: 1.5rem;
 }
 
 .brand-area h1 {
-  margin: 0 0 0.5rem 0;
   text-align: left;
-}
-
-.user-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.user-text {
-  margin: 0;
-  color: #4E433F;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
 }
 
 .dashboard-content {
@@ -367,13 +378,6 @@ form > div {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "todo calendar";
   gap: 1.5rem;
-}
-
-.todo-section,
-.calendar-section {
-  background: #EDEFF3;
-  border-radius: 12px;
-  padding: 1.5rem;
 }
 
 .todo-section {
@@ -384,24 +388,25 @@ form > div {
   grid-area: calendar;
 }
 
-/* ---------- DASHBOARD BUTTONS ----------*/
 .edit-btn {
   padding: 0.5rem 0.9rem;
   border: 1px solid #4E433F;
   border-radius: 8px;
   background: #4E433F;
   color: #EDEFF3;
-  cursor: pointer;
   font-weight: 600;
+}
+
+.edit-btn:hover,
+.todo-delete-btn:hover {
+  opacity: 1;
 }
 
 .edit-btn:hover {
   background: #3d3431;
-  opacity: 1;
 }
 
-
-/* ---------- CALENDAR ----------*/
+/* ---------- CALENDAR ---------- */
 
 .calendar-month {
   margin-top: 0;
@@ -423,35 +428,38 @@ form > div {
   border-radius: 8px;
 }
 
-.calendar-weekday {
-  font-weight: 600;
-  background: transparent;
-  border: none;
-  min-height: auto;
+.calendar-weekday,
+.calendar-cell.today {
+  font-weight: 700;
 }
 
+.calendar-weekday,
 .calendar-cell.empty {
   background: transparent;
   border: none;
 }
 
-.calendar-cell.today {
-  border: 2px solid #796D64;
-  font-weight: 700;
+.calendar-weekday {
+  min-height: auto;
 }
 
-/* ---------- TODO ----------*/
+.calendar-cell.today {
+  border: 2px solid #796D64;
+}
 
-.todo-form {
+/* ---------- TODO ---------- */
+
+.todo-form,
+.todo-list {
   display: grid;
   gap: 0.75rem;
+}
+
+.todo-form {
   margin-bottom: 1rem;
 }
 
 .todo-check {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   color: #4E433F;
   font-size: 0.95rem;
 }
@@ -460,8 +468,6 @@ form > div {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: 0.75rem;
 }
 
 .todo-item {
@@ -476,8 +482,6 @@ form > div {
 }
 
 .todo-left {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
 }
 
@@ -487,9 +491,6 @@ form > div {
 }
 
 .todo-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
@@ -504,15 +505,12 @@ form > div {
 .todo-delete-btn {
   background: #8b4a4a;
   color: #fff;
-  border: none;
   border-radius: 6px;
   padding: 0.45rem 0.75rem;
-  cursor: pointer;
 }
 
 .todo-delete-btn:hover {
   background: #733b3b;
-  opacity: 1;
 }
 
 .todo-empty {
@@ -523,7 +521,7 @@ form > div {
   color: #4E433F;
 }
 
-/* ---------- RESPONSIVE ----------*/
+/* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 800px) {
   .dashboard-content {
