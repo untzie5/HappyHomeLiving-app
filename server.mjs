@@ -2,8 +2,8 @@ import "dotenv/config";
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import todosRouter from "./Routes/TodosAPI.mjs";
-import UserRouter from "./Routes/UsersAPI.mjs";
+import todosRouter from "./routes/TodosAPI.mjs";
+import UserRouter from "./routes/UsersAPI.mjs";
 const app =  express();
 const PORT = process.env.PORT || 3000;
 
