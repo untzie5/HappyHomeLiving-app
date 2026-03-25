@@ -22,6 +22,13 @@ The API was scaffolded to show how the client can create, read, update and delet
 Detailed endpoint documentation can be found in `API.md`.
 The API was tested with Insomnia, and the exported Insomnia collection is included in the repository.
 
+## Client scaffold
+The project includes a basic client scaffold consisting of:
+- index.html (entry point)
+- app.mjs (application logic and routing)
+- style.css (global styling)
+The scaffold has been extended into a simple SPA structure with dynamic view loading.
+
 ## Testing with Insomnia
 The Insomnia request collection export is included in:
 `tests/insomnia/InsomniaTest.yaml`
