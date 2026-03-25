@@ -16,9 +16,16 @@ https://trello.com/invite/b/699c097acefb7a758cf48ccb/ATTIbf377ee9fa3beebd9f19960
 ## Middleware planning: 
 https://miro.com/app/board/uXjVGROm4UU=/
 
+## API
+This project contains a RESTful'ish API for household to-do items.
+The API was scaffolded to show how the client can create, read, update and delete shared tasks in the app.
+Detailed endpoint documentation can be found in `API.md`.
+The API was tested with Insomnia, and the exported Insomnia collection is included in the repository.
+
 ## Testing with Insomnia
 The Insomnia request collection export is included in:
-`tests/insomnia/HappyHomeLivingAPI.yaml`
+`tests/insomnia/InsomniaTest.yaml`
 
 ## Web Service URL:
 https://happyhomeliving-app.onrender.com 
+
