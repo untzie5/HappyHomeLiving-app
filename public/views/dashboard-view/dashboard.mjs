@@ -1,11 +1,22 @@
 import { loadUser, clearUser } from "/components/session.mjs";
-import { apiRequest } from "/components/api.mjs";
+import { apiRequest } from "/components/api.mjs"
+import { t } from "/views/i18n-client.mjs";
 
 export async function mount({ app, navigate }) {
   const user = loadUser();
   if (!user) return navigate("/login");
 
   app.querySelector("#usernameText").textContent = user.username;
+
+  app.querySelector("#user-label").textContent = await t("ui.dashboard.userLabel");
+  app.querySelector("#edit-user-btn").textContent = await t("ui.dashboard.edit");
+  app.querySelector("#logout-btn").textContent = await t("ui.dashboard.logout");
+  app.querySelector("#calendar-title").textContent = await t("ui.dashboard.calendar");
+  app.querySelector("#todo-title").textContent = await t("ui.dashboard.todo");
+  app.querySelector("#todo-input").placeholder = await t("ui.dashboard.todoPlaceholder");
+  app.querySelector("#repeatWeekly-label").textContent = await t("ui.dashboard.repeatWeekly");
+  app.querySelector("#removeWhenDone-label").textContent = await t("ui.dashboard.removeWhenDone");
+  app.querySelector("#todo-submit-btn").textContent = await t("ui.dashboard.add");
 
   app.querySelector("#edit-user-btn")?.addEventListener("click", () => {
     navigate("/edit-user");
@@ -78,7 +89,7 @@ function wireTodoForm(app) {
     const removeWhenDone = app.querySelector("#removeWhenDone")?.checked ?? false;
 
     if (!text) {
-      errorEl.textContent = "Task text is required";
+      errorEl.textContent = await t ("ui.dashboard.taskRequired");
       errorEl.hidden = false;
       return;
     }
@@ -115,7 +126,7 @@ async function renderTodos(app) {
     const todos = data.todos ?? [];
 
     if (todos.length === 0) {
-      list.innerHTML = `<li class="todo-empty">No tasks yet</li>`;
+      list.innerHTML = `<li class="todo-empty">${await t("ui.dashboard.noTask")}</li>`;
       return;
     }
 
@@ -163,21 +174,21 @@ async function renderTodos(app) {
       if (todo.repeatWeekly) {
         const badge = document.createElement("span");
         badge.className = "todo-badge";
-        badge.textContent = "Weekly";
+        badge.textContent = await t("ui.dashboard.weekly");
         actions.append(badge);
       }
 
       if (todo.removeWhenDone) {
         const badge = document.createElement("span");
         badge.className = "todo-badge";
-        badge.textContent = "Auto-remove";
+        badge.textContent = await t("ui.dashboard.autoRemove");
         actions.append(badge);
       }
 
       const delBtn = document.createElement("button");
       delBtn.type = "button";
       delBtn.className = "todo-delete-btn";
-      delBtn.textContent = "Delete";
+      delBtn.textContent = await t("ui.dashboard.delete");
 
       delBtn.addEventListener("click", async () => {
         try {
