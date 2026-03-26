@@ -45,6 +45,23 @@
         "updated": "Bruker oppdatert!",
         "dangerTitle": "Faresone",
         "dangerText": "Slett kontoen din permanent."
-        } 
-    }
+        },
+
+        "dashboard":{
+        "userLabel": "Bruker:",
+        "edit": "Rediger",
+        "logout": "Logg ut",
+        "calendar": "Kalender",
+        "todo": "Gjøremål",
+        "todoPlaceholder": "Legg til en oppgave...",
+        "repeatWeekly": "Gjenta ukentlig ",
+        "removeWhenDone": "Fjern når fullført",
+        "add": "Legg til",
+        "taskRequired": "Oppgave tekst er påkrevd",
+        "noTask": "Ingen oppgaver enda",
+        "weekly": "Ukentlig",
+        "autoRemove": "Fjern automatisk",
+        "delete": "Slett"
+    } 
+  }
 }

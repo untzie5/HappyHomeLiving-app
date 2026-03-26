@@ -45,6 +45,22 @@
         "updated": "User updated successfully!",
         "dangerTitle": "Danger zone",
         "dangerText": "Delete your account permanently."
-        } 
+        },
+      "dashboard":{
+        "userLabel": "User:",
+        "edit": "Edit",
+        "logout": "Logout",
+        "calendar": "Calendar",
+        "todo": "To do",
+        "todoPlaceholder": "Add a task...",
+        "repeatWeekly": "Repeat Weekly",
+        "removeWhenDone": "Remove when done",
+        "add": "Add",
+        "taskRequired": "Task text is Required",
+        "noTask": "No tasks yet",
+        "weekly": "Weekly",
+        "autoRemove": "Auto-Remove",
+        "delete": "Delete"
+      }
     }
 }
