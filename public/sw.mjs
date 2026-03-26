@@ -1,4 +1,4 @@
-const CACHE_NAME = "hhl-cache-v10";
+const CACHE_NAME = "hhl-cache-v11";
 
 const APP_SHELL = [
   "/",
@@ -12,6 +12,7 @@ const APP_SHELL = [
   "/views/edit-view/edit-user.html",
   "/views/tos-pp-view.html",
   "/views/tos-pp-view-no.html",
+  "/views/tos-pp-view-is.html",
   
   "/components/create-user.mjs",
   "/components/delete-user.mjs",
@@ -25,6 +26,7 @@ const APP_SHELL = [
 
   "/localization/en.json",
   "/localization/no.json",
+  "/localization/is.json",
 
   "/assets/icons/house-192.png",
   "/assets/icons/house-512.png",
