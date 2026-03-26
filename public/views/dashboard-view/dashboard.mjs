@@ -8,6 +8,7 @@ export async function mount({ app, navigate }) {
 
   app.querySelector("#usernameText").textContent = user.username;
 
+  app.querySelector("#dashboard-app-title").textContent = await t("ui.dashboard.appTitle");
   app.querySelector("#user-label").textContent = await t("ui.dashboard.userLabel");
   app.querySelector("#edit-user-btn").textContent = await t("ui.dashboard.edit");
   app.querySelector("#logout-btn").textContent = await t("ui.dashboard.logout");
