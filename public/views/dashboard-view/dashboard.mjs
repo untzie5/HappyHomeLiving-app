@@ -1,6 +1,6 @@
 import { loadUser, clearUser } from "/components/session.mjs";
 import { apiRequest } from "/components/api.mjs"
-import { t } from "/views/i18n-client.mjs";
+import { t, getClientLocale } from "/views/i18n-client.mjs";
 
 export async function mount({ app, navigate }) {
   const user = loadUser();
@@ -32,12 +32,41 @@ export async function mount({ app, navigate }) {
   await renderTodos(app);
 }
 
+function getCalendarLocale() {
+  return getClientLocale() === "no" ? "nb-NO" : "en-GB";
+}
+
+function getFirstDayOfWeek(locale) {
+  try {
+    return new Intl.Locale(locale).weekInfo.firstDay;
+  } catch {
+    return 1;
+  }
+}
+
+function getWeekdayNames(locale, firstDayOfWeek) {
+  const names = [];
+
+  for (let i = 0; i < 7; i++) {
+    const dayNumber = ((firstDayOfWeek - 1 + i) % 7) + 1;
+    const refDate = new Date(2024, 0, dayNumber);
+    names.push(refDate.toLocaleDateString(locale, { weekday: "short" }));
+  }
+
+  return names;
+}
+
+function getAdjustedFirstDay(firstDay, firstDayOfWeek) {
+  const jsDay = firstDay === 0 ? 7 : firstDay;
+  return (jsDay - firstDayOfWeek + 7) % 7;
+}
+
 function renderCalendar(app) {
   const container = app.querySelector("#calendar-container");
   if (!container) return;
 
   const now = new Date();
-  const locale = localStorage.getItem("language") || "en";
+  const locale = getCalendarLocale();
 
   const monthName = now.toLocaleDateString(locale, {
     month: "long",
@@ -47,11 +76,9 @@ function renderCalendar(app) {
   const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
   const firstDay = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
 
-  const weekdayNames = [];
-  for (let i = 0; i < 7; i++) {
-    const day = new Date(2024, 0, 7 + i);
-    weekdayNames.push(day.toLocaleDateString(locale, { weekday: "short" }));
-  }
+  const firstDayOfWeek = getFirstDayOfWeek(locale);
+  const weekdayNames = getWeekdayNames(locale, firstDayOfWeek);
+  const adjustedFirstDay = getAdjustedFirstDay(firstDay, firstDayOfWeek);
 
   let html = `<div class="calendar">`;
   html += `<h3 class="calendar-month">${monthName}</h3>`;
@@ -60,8 +87,6 @@ function renderCalendar(app) {
   for (const dayName of weekdayNames) {
     html += `<div class="calendar-cell calendar-weekday">${dayName}</div>`;
   }
-
-  const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
 
   for (let i = 0; i < adjustedFirstDay; i++) {
     html += `<div class="calendar-cell empty"></div>`;
