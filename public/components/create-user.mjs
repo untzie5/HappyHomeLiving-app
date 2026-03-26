@@ -203,8 +203,10 @@ class CreateUser extends HTMLElement {
 
       try {
         const locale = getClientLocale();
-        const file =
-          locale === "no" ? "/views/tos-pp-view-no.html" : "/views/tos-pp-view.html";
+        let file = "/views/tos-pp-view.html";
+
+        if (locale === "no") file = "/views/tos-pp-view-no.html";
+        if (locale === "is") file = "/views/tos-pp-view-is.html";
 
         const res = await fetch (file, { cache: "no-store"});
         if (!res.ok) throw new Error ("Failed to load Terms and Privacy view");
