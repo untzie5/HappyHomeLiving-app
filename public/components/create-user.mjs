@@ -164,37 +164,55 @@ class CreateUser extends HTMLElement {
     this.#dialog.append(form);
 
     //----------------------------
-   this.#tosDialog = document.createElement("dialog");
-this.#tosDialog.className = "tos-dialog";
+     //----------------------------
+    this.#tosDialog = document.createElement("dialog");
+    this.#tosDialog.className = "tos-dialog";
 
-const tosCard = document.createElement("div");
-tosCard.className = "cu-card tos-card";
+    const tosCard = document.createElement("div");
+    tosCard.className = "tos-card";
 
-const tosBody = document.createElement("div");
-tosBody.className = "tos-html-content";
-tosBody.innerHTML = `<p>Loading...</p>`;
+    const tosHeader = document.createElement("div");
+    tosHeader.className = "tos-dialog-header";
 
-tosCard.append(tosBody);
-this.#tosDialog.append(tosCard);
+    const tosTitle = document.createElement("h2");
+    tosHeader.append(tosTitle);
 
-tosText.addEventListener("click", async () => {
-  try {
-    const res = await fetch("/views/tos-pp-view.html", { cache: "no-store" });
-    if (!res.ok) throw new Error("Failed to load Terms and Privacy view");
+    const tosBody = document.createElement("div");
+    tosBody.className = "tos-html-content";
+    tosBody.innerHTML = `<p>Loading...</p>`;
 
-    tosBody.innerHTML = await res.text();
+    const tosFooter = document.createElement("div");
+    tosFooter.className = "tos-dialog-footer";
 
-    const closeBtn = tosBody.querySelector("#cu-close");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => this.#tosDialog.close());
-    }
+    const tosBackBtn = document.createElement("button");
+    tosBackBtn.type = "button";
+    tosBackBtn.id = "tos-back-btn";
+    tosBackBtn.addEventListener("click", () => this.#tosDialog.close());
 
-    this.#tosDialog.showModal();
-  } catch (err) {
-    tosBody.innerHTML = `<p class="cu-error">${err.message}</p>`;
-    this.#tosDialog.showModal();
-  }
-});
+    tosFooter.append(tosBackBtn);
+    tosCard.append(tosHeader, tosBody, tosFooter);
+    this.#tosDialog.append(tosCard);
+
+    (async () => {
+      tosTitle.textContent = await t("ui.createUser.tosTitle");
+      tosBackBtn.textContent = await t("ui.createUser.back");
+    })();
+
+    tosText.addEventListener("click", async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      try {
+        const res = await fetch("/views/tos-pp-view.html", { cache: "no-store" });
+        if (!res.ok) throw new Error("Failed to load Terms and Privacy view");
+
+        tosBody.innerHTML = await res.text();
+        this.#tosDialog.showModal();
+      } catch (err) {
+        tosBody.innerHTML = `<p class="cu-error">${err.message}</p>`;
+        this.#tosDialog.showModal();
+      }
+    });
 
     this.append(this.#dialog, this.#tosDialog);
   }
