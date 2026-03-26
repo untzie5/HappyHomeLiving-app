@@ -47,6 +47,7 @@
         "dangerText": "Delete your account permanently."
         },
       "dashboard":{
+        "appTitle": "Happy Home Living",
         "userLabel": "User:",
         "edit": "Edit",
         "logout": "Logout",
@@ -61,6 +62,15 @@
         "weekly": "Weekly",
         "autoRemove": "Auto-Remove",
         "delete": "Delete"
+      },
+      "login": {
+          "appTitle": "Happy Home Living",
+          "title": "Sign in",
+          "username": "Username",
+          "password": "Password",
+          "submit": "Sign in",
+          "notUserYet": "Not a user yet?",
+          "createUser": "Create user"
       }
     }
 }

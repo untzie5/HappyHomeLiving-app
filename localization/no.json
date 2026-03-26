@@ -48,6 +48,7 @@
         },
 
         "dashboard":{
+        "appTitle": "Happy Home Living",
         "userLabel": "Bruker:",
         "edit": "Rediger",
         "logout": "Logg ut",
@@ -62,6 +63,15 @@
         "weekly": "Ukentlig",
         "autoRemove": "Fjern automatisk",
         "delete": "Slett"
-    } 
+    },
+    "login": {
+         "appTitle": "Happy Home Living",
+          "title": "Logg inn",
+          "username": "Brukernavn",
+          "password": "Passord",
+          "submit": "Logg inn",
+          "notUserYet": "Ikke bruker enda?",
+          "createUser": "Opprett bruker"
+      }
   }
 }
