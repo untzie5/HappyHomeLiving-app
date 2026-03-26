@@ -37,3 +37,6 @@ The tests include both the first Insomnia test called "InsomniaTest.yaml" and th
 ## Web Service URL:
 https://happyhomeliving-app.onrender.com 
 
+## Disclaimer: 
+Not all features has been added. Missing able to add household, send messages, shared shopping list and being able to add happenings in the calendar. 
+
