@@ -2,31 +2,31 @@
   <main>
     <div class="app-title">
       <img src="/assets/icons/house-512.png" alt="App icon" class="app-icon" />
-      <h1>Happy Home Living</h1>
+      <h1 id="login-app-title">Happy Home Living</h1>
     </div>
     <br>
 
-    <h2>sign in</h2>
+    <h2 id="login-title">sign in</h2>
     <br>
 
 
     <form id="login-form">
       <div>
-        <label for="username">username</label>
+        <label for="username" id="login-username-label">username</label>
         <input id="username" name="username" type="text" required />
       </div>
 
       <div>
-        <label for="password">Password</label>
+        <label for="password" id="login-password-label">Password</label>
         <input id="password" name="password" type="password" required />
       </div>
 
-      <button type="submit">sign in</button>
+      <button type="submit" id="login-submit-btn">sign in</button>
     </form>
   </main>
 
   <div class="create-user-container">
-    <p>Not a user yet?</p>
+    <p id="login-create-text">Not a user yet?</p>
     <button type="button" class="create-user-btn" id="open-create-user">Create user</button>
   </div>
 
