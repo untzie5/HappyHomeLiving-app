@@ -14,11 +14,13 @@ function loadJson(relativePath) {
 const dictionaries = {
   en: loadJson("../localization/en.json"),
   no: loadJson("../localization/no.json"),
+  is: loadJson("..//localization/is.json"),
 };
 
 export function getLocaleFromRequest(req) {
   const header = (req.headers["accept-language"] ?? "").toString().toLowerCase();
   if (header.includes("nb") || header.includes("nn") || header.includes("no")) return "no";
+  if (header.includes("is")) return "is";
   return "en";
 }
 
@@ -32,11 +34,19 @@ export function t(locale, key, vars = {}) {
 }
 
 export function formatDate(locale, date) {
-  const intlLocale = locale === "no" ? "nb-NO" : "en";
+  let intlLocale = "en";
+
+  if (locale === "no") intlLocale = "nb-NO";
+  if (locale === "is") intlLocale = "is-IS";
+
   return new Intl.DateTimeFormat(intlLocale, { dateStyle: "short" }).format(date);
 }
 
 export function formatNumber(locale, n) {
-  const intlLocale = locale === "no" ? "nb-NO" : "en";
+  let intlLocale = "en";
+
+  if (locale === "no") intlLocale = "nb-NO";
+  if (locale === "is") intlLocale = "is-IS";
+
   return new Intl.NumberFormat(intlLocale).format(n);
 }
