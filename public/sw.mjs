@@ -1,4 +1,4 @@
-const CACHE_NAME = "hhl-cache-v10node ser";
+const CACHE_NAME = "hhl-cache-v10";
 
 const APP_SHELL = [
   "/",
@@ -6,13 +6,13 @@ const APP_SHELL = [
   "/style.css",
   "/app.mjs",
   "/manifest.json",
-  "/ToS.md",
-  "/Privacy-policy.md",
 
   "/views/login-view/login.html",
   "/views/dashboard-view/dashboard.html",
   "/views/edit-view/edit-user.html",
-
+  "/views/tos-pp-view.html",
+  "/views/tos-pp-view-no.html",
+  
   "/components/create-user.mjs",
   "/components/delete-user.mjs",
   "/components/api.mjs",
