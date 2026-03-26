@@ -1,5 +1,5 @@
 import { apiRequest } from "/components/api.mjs";
-import { t } from "/views/i18n-client.mjs";
+import { t, getClientLocale } from "/views/i18n-client.mjs";
 
 
 class CreateUser extends HTMLElement {
@@ -164,7 +164,6 @@ class CreateUser extends HTMLElement {
     this.#dialog.append(form);
 
     //----------------------------
-     //----------------------------
     this.#tosDialog = document.createElement("dialog");
     this.#tosDialog.className = "tos-dialog";
 
@@ -203,16 +202,21 @@ class CreateUser extends HTMLElement {
       e.stopPropagation();
 
       try {
-        const res = await fetch("/views/tos-pp-view.html", { cache: "no-store" });
-        if (!res.ok) throw new Error("Failed to load Terms and Privacy view");
+        const locale = getClientLocale();
+        const file =
+          locale === "no" ? "/views/tos-pp-view-no.html" : "/views/tos-pp-view.html";
 
+        const res = await fetch (file, { cache: "no-store"});
+        if (!res.ok) throw new Error ("Failed to load Terms and Privacy view");
+
+        
         tosBody.innerHTML = await res.text();
         this.#tosDialog.showModal();
       } catch (err) {
         tosBody.innerHTML = `<p class="cu-error">${err.message}</p>`;
         this.#tosDialog.showModal();
-      }
-    });
+     }
+});
 
     this.append(this.#dialog, this.#tosDialog);
   }
