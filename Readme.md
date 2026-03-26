@@ -30,8 +30,9 @@ The project includes a basic client scaffold consisting of:
 The scaffold has been extended into a simple SPA structure with dynamic view loading.
 
 ## Testing with Insomnia
-The Insomnia request collection export is included in:
-`tests/insomnia/InsomniaTest.yaml`
+The Insomnia tests are to be found here:
+`tests/insomnia`
+The tests include both the first Insomnia test called "InsomniaTest.yaml" and the latest test called "Final_Insomnia.yaml"
 
 ## Web Service URL:
 https://happyhomeliving-app.onrender.com 

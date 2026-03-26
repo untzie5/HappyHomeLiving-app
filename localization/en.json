@@ -28,7 +28,8 @@
         "note": "You must accept Terms of Service to create an account.",
         "tosLink": "I agree to the Terms of Service",
         "submit": "Create User",
-        "tosTitle": "Terms of Service"
+        "tosTitle": "Terms of Service",
+        "back": "Back"
     },
         "deleteUser": {
         "button": "Delete account",

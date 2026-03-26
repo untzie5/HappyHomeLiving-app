@@ -28,7 +28,8 @@
         "note": "Du må akseptere vilkårene for å opprette en konto.",
         "tosLink": "Jeg godtar vilkårene",
         "submit": "Opprett bruker",
-        "tosTitle": "Vilkår"
+        "tosTitle": "Vilkår",
+        "back": "Tilbake"
     },
       "deleteUser": {
         "button": "Slett konto",
