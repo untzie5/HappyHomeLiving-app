@@ -1,0 +1,76 @@
+{
+  "errors": {
+    "incorrectId": "Rangt auðkenni",
+    "notFound": "Ekki fundið",
+    "tosRequired": "Þú verður að samþykkja þjónustuskilmálana til að búa til notanda",
+
+    "usernameTooShort": "Notandanafn verður að innihalda að minnsta kosti 3 stafi",
+    "passwordTooShort": "Lykilorð verður að innihalda að minnsta kosti 5 stafi",
+    "invalidEmail": "Ógilt netfang",
+    "usernameExists": "Notandanafn er þegar í notkun",
+    "missingCredentials": "Vantar notandanafn eða lykilorð",
+    "invalidCredentials": "Ógilt notandanafn eða lykilorð",
+    "userNotFound": "Notandi fannst ekki",
+    "required": "Þessi reitur er nauðsynlegur"
+  },
+  "users": {
+    "created": "Notandi búinn til!",
+    "deleted": "Aðgangur eyddur og samþykki afturkallað",
+    "updated": "Notandi uppfærður!"
+  },
+  "ui": {
+    "createUser": {
+      "title": "Búa til notanda",
+      "close": "Loka",
+      "username": "Notandanafn",
+      "password": "Lykilorð",
+      "email": "Netfang",
+      "note": "Þú verður að samþykkja skilmálana til að búa til aðgang.",
+      "tosLink": "Ég samþykki skilmálana",
+      "submit": "Búa til notanda",
+      "tosTitle": "Skilmálar",
+      "back": "Til baka"
+    },
+    "deleteUser": {
+      "button": "Eyða aðgangi",
+      "confirm": "Ertu viss um að þú viljir eyða aðganginum?",
+      "noUserSet": "Enginn notandi valinn"
+    },
+    "editUser": {
+      "title": "Breyta notanda",
+      "newUsername": "Nýtt notandanafn (valfrjálst)",
+      "newPassword": "Nýtt lykilorð (valfrjálst)",
+      "confirm": "Staðfesta",
+      "back": "Til baka",
+      "updated": "Notandi uppfærður!",
+      "dangerTitle": "Hættusvæði",
+      "dangerText": "Eyða aðganginum þínum varanlega."
+    },
+    "dashboard": {
+      "appTitle": "Happy Home Living",
+      "userLabel": "Notandi:",
+      "edit": "Breyta",
+      "logout": "Skrá út",
+      "calendar": "Dagatal",
+      "todo": "Verkefni",
+      "todoPlaceholder": "Bæta við verkefni...",
+      "repeatWeekly": "Endurtaka vikulega",
+      "removeWhenDone": "Fjarlægja þegar lokið",
+      "add": "Bæta við",
+      "taskRequired": "Verkefnatexti er nauðsynlegur",
+      "noTask": "Engin verkefni enn",
+      "weekly": "Vikulega",
+      "autoRemove": "Fjarlægja sjálfkrafa",
+      "delete": "Eyða"
+    },
+    "login": {
+      "appTitle": "Happy Home Living",
+      "title": "Skrá inn",
+      "username": "Notandanafn",
+      "password": "Lykilorð",
+      "submit": "Skrá inn",
+      "notUserYet": "Ekki notandi enn?",
+      "createUser": "Búa til notanda"
+    }
+  }
+}
