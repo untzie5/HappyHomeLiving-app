@@ -6,7 +6,7 @@
 
     "usernameTooShort": "Brukernavnet må inneholde minst 3 symboler",
     "passwordTooShort": "Passordet må inneholde minst 5 karakterer",
-    "invalidEmail": "ugyldig epost",
+    "invalidEmail": "Ugyldig epost",
     "usernameExists": "Brukernavnet er allerede i bruk",
     "missingCredentials": "Mangler brukernavn eller passord",
     "invalidCredentials": "Ugyldig brukernavn eller passord",

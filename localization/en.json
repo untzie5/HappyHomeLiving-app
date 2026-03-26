@@ -21,7 +21,7 @@
   "ui": {
     "createUser": {
         "title": "Create User",
-        "close": "close",
+        "close": "Close",
         "username": "Username",
         "password": "Password",
         "email": "Email",
@@ -39,7 +39,7 @@
         "title": "Edit user",
         "newUsername": "New username (optional)",
         "newPassword": "New password (optional)",
-        "confirm": "confirm",
+        "confirm": "Confirm",
         "back": "Back",
         "updated": "User updated successfully!",
         "dangerTitle": "Danger zone",
