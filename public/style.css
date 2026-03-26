@@ -418,9 +418,15 @@ form > div {
   gap: 0.5rem;
 }
 
+.calendar-section {
+  background: #edeff3;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
 .calendar-cell {
   min-height: 60px;
-  display: flex;
+  display: flex;  
   align-items: center;
   justify-content: center;
   background: white;
